@@ -1,3 +1,4 @@
+//
 const express = require('express')
 require('./db/mongoose')
 const User = require('./models/user')
@@ -60,7 +61,34 @@ app.post('/movies', (req, res) => {
         res.status(400).send(e)
     })
 })
-   
+
+app.get('/movies', (req, res) => {
+    //
+    Movie.find({}).then((movie) => {
+        //
+        res.send(movie)
+    }).catch((e) => {
+        //
+        res.status(500).send()
+    })
+})
+
+app.get('/movies/:id', (req, res) => {
+    //
+    const _id = req.params.id
+
+    Movie.findById(_id).then((movie) => {
+        //
+        if(!movie) {
+            return res.status(404).send()
+        }
+        res.send(movie)
+    }).catch((e) => {
+        //
+        res.status(500).send()
+    })
+})
+
 app.listen(port, () => {
     //
     console.log('Server is up on port ' + port)
