@@ -14,4 +14,4 @@
       * Add a new path  adding "C:\Program Files\MongoDB\Server\4.4\bin".
       * Now you can run cmd and write "mongo"
       * If it doesnt work then write "mongod" you will probably need a first time running exe.
-    
+      * Ladda ner "https://robomongo.org/" if you want to use MongoDB from an useful application.
