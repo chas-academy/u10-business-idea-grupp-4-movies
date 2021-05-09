@@ -9,84 +9,103 @@ const port  = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.get('/users', (req, res) => {
+
+//Create Users
+app.post('/users', async (req, res) => {
     //
-    User.find({}).then((users) => {
+    const user = new User(req.body)
+
+    try {
         //
-        res.send(users)
-    }).catch((e) => {
+        await user.save()
+        res.status(201).send(user)
+    } catch (e) {
         //
-        res.status(500).send()
-    })
+        res.status(400).send(e)
+    }
 })
 
-app.get('/users/:id', (req, res) => {
+//Show Users
+app.get('/users', async (req, res) => {
+    //
+    try {
+        //
+        const users = await User.find({})
+        res.send(users)
+    } catch (e) {
+        //
+        res.status(500).send()
+    }
+})
+
+//Show Users by ID
+app.get('/users/:id', async (req, res) => {
     //
     const _id = req.params.id
-    User.findById(_id).then((user) => {
+    //
+    try {
         //
+        const user = await User.findById(_id)
+        
         if (!user) {
             //
             return res.status(404).send()
         }
         res.send(user)
-    }).catch((e) => {
+
+    } catch (e) {
         //
         res.status(500).send()
-    })
+    }
 })
 
-app.post('/users', (req, res) => {
-    //
-    const user = new User(req.body)
-
-    user.save().then(() => {
-        //
-        res.send(user)
-    }).catch((e) => {
-        //
-        res.status(400).send(e)
-    })
-})
-
-app.post('/movies', (req, res) => {
+//Create Movies
+app.post('/movies', async (req, res) => {
     //
     const movie = new Movie(req.body)
 
-    movie.save().then(() => {
+    try {
         //
-        res.send(movie)
-    }).catch((e) => {
+        await movie.save()
+        res.status(201).send(movie)
+    } catch (e) {
         //
         res.status(400).send(e)
-    })
+    }
 })
 
-app.get('/movies', (req, res) => {
+//Show Movies
+app.get('/movies', async (req, res) => {
     //
-    Movie.find({}).then((movie) => {
+    try {
         //
+        const movie = await Movie.find({})
         res.send(movie)
-    }).catch((e) => {
+    } catch (e) {
         //
         res.status(500).send()
-    })
+    }
 })
 
-app.get('/movies/:id', (req, res) => {
+//Show Movies by ID
+app.get('/movies/:id', async (req, res) => {
     //
     const _id = req.params.id
-
-    Movie.findById(_id).then((movie) => {
+    //
+    try {
         //
-        if(!movie) {
+        const movie = await Movie.findById(_id)
+        
+        if (!movie) {
+            //
             return res.status(404).send()
         }
         res.send(movie)
-    }).catch((e) => {
+
+    } catch (e) {
         //
         res.status(500).send()
-    })
+    }
 })
 
 app.listen(port, () => {
