@@ -15,3 +15,16 @@
       * Now you can run cmd and write "mongo"
       * If it doesnt work then write "mongod" you will probably need a first time running exe.
       * Ladda ner "https://robomongo.org/" if you want to use MongoDB from an useful application.
+
+- Node/Express installation with MongoDB
+  1. Clone the folder and then open the terminal
+    
+    * $ cd backend
+    * $ cd npm init y-
+    * $ npm i mongodb@latest
+    * $ npm mongoose@latest
+    * $ npm i validator@latest
+    * $ npm i nodemon@latest --save-dev
+    * $ npm i express@latest
+    
+- More coming soon..
