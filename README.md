@@ -30,4 +30,4 @@
  In frontend-folder run:
  - $ npm i css-loader
 
-- More coming soon..
+More coming soon..
