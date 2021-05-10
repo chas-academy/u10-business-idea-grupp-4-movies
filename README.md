@@ -26,4 +26,8 @@
     * $ npm i nodemon@latest --save-dev
     * $ npm i express@latest
     
+ ## Linux/WSL2 
+ In frontend-folder run:
+ - $ npm i css-loader
+
 - More coming soon..
