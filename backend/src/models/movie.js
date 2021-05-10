@@ -32,6 +32,10 @@ const Movie = mongoose.model('Movie', {
                 throw new Error('Your number must be less than 5')
             }
         }
+    },
+    completed: {
+        type: Boolean,
+        default: false
     }
     
 })
