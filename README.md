@@ -20,7 +20,6 @@
   1. Clone the folder and then open the terminal
     
     * $ cd backend
-    * $ cd npm init y-
     * $ npm i mongodb@latest
     * $ npm mongoose@latest
     * $ npm i validator@latest
