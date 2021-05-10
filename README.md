@@ -21,7 +21,7 @@
     
     * $ cd backend
     * $ npm i mongodb@latest
-    * $ npm mongoose@latest
+    * $ npm i mongoose@latest
     * $ npm i validator@latest
     * $ npm i nodemon@latest --save-dev
     * $ npm i express@latest
