@@ -8,16 +8,9 @@
 - ./vendor/bin/sail up
 - ./vendor/bin/sail artisan migrate
 
-Make sure your db settings inside .env looks like this if you are working with docker
-- DB_CONNECTION=mysql
-- DB_HOST=mysql
-- DB_PORT=3306
-- DB_DATABASE=backend
-- DB_USERNAME=sail
-- DB_PASSWORD=password
-
-go see inside .env.example to find out more
-
+if migrate fails try
+- docker-compose down -v
+- docker-compose up -d
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
