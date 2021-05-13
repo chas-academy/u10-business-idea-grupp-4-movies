@@ -1,3 +1,13 @@
+## To get started with frontend
+Frontend is generated with angular CLI, so a good idea to install it `npm install -g @angular/cli` 
+- clone this repo
+- cd frontend
+- npm install
+- create .env file `cp .env.example .env`
+- make sure your `API_URL` in `.env` is correct and connected to the backend
+- run `ng serve`
+- dev server will be found on `http://localhost:4200/`
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
