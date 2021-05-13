@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+// tslint:disable-next-line: no-submodule-imports
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { TokenService } from '../services/token.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class AuthStateService {
+    private userState = new BehaviorSubject<boolean>(this.token.isLoggedIn());
+    userAuthState = this.userState.asObservable();
 
-  constructor() { }
+    constructor(public token: TokenService) {}
+
+    setAuthState(value: boolean) {
+        this.userState.next(value);
+    }
 }
