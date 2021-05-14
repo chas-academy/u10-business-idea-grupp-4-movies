@@ -16,7 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { SwipepageComponent } from './components/swipepage/swipepage.component';
-import { AllUsers } from './components/addfriends/addfriends.component';
+import { AllUsersComponent } from './components/allusers/allusers.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
 
@@ -29,7 +29,7 @@ import { AuthInterceptor } from '../services/auth.interceptor';
         RegisterComponent,
         LandingpageComponent,
         SwipepageComponent,
-        AllUsers,
+        AllUsersComponent,
         UserProfileComponent,
     ],
     imports: [
