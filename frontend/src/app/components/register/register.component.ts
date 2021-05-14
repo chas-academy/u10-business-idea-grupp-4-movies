@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     errors = null;
 

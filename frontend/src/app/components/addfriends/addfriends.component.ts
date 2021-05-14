@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-addfriends',
-  templateUrl: './addfriends.component.html',
-  styleUrls: ['./addfriends.component.scss']
+    selector: 'app-addfriends',
+    templateUrl: './addfriends.component.html',
+    styleUrls: ['./addfriends.component.scss'],
 })
-export class AddfriendsComponent implements OnInit {
+export class AllUsers implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

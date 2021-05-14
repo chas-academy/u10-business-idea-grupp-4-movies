@@ -12,11 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SigninComponent } from './components/login/login.component';
-import { SignupComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { SwipepageComponent } from './components/swipepage/swipepage.component';
-import { AddfriendsComponent } from './components/addfriends/addfriends.component';
+import { AllUsers } from './components/addfriends/addfriends.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
 
@@ -25,11 +25,11 @@ import { AuthInterceptor } from '../services/auth.interceptor';
         AppComponent,
         NavbarComponent,
         FooterComponent,
-        SigninComponent,
-        SignupComponent,
+        LoginComponent,
+        RegisterComponent,
         LandingpageComponent,
         SwipepageComponent,
-        AddfriendsComponent,
+        AllUsers,
         UserProfileComponent,
     ],
     imports: [

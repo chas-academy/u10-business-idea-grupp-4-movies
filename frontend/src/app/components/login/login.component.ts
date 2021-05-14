@@ -10,7 +10,7 @@ import { AuthStateService } from '../../../services/auth-state.service';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class SigninComponent implements OnInit {
+export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     errors = null;
 
