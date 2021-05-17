@@ -1,5 +1,5 @@
-<header
-    class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center lg:text-right lg:mb-3">
+<header class=" border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center lg:text-right
+    lg:mb-3">
 
     <div class="flex items-center justify-between mb-4 md:mb-0 ">
         <h1 class="leading-none text-2xl text-grey-darkest text-center">
@@ -17,25 +17,25 @@
         <ul class="list-reset md:flex md:items-center">
             <li class="md:ml-4">
                 <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    routerLink="/swipe" *ngIf="isSignedIn">
+                    routerLink="/swipe">
                     Swipe
                 </a>
             </li>
             <li class="md:ml-4">
                 <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    routerLink="/profile" *ngIf="isSignedIn">
+                    routerLink="/profile">
                     Profile
                 </a>
             </li>
             <li class="md:ml-4">
                 <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    routerLink="/users" *ngIf="isSignedIn">
+                    routerLink="/users">
                     Users
                 </a>
             </li>
             <li class="md:ml-4">
                 <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    routerLink="#" *ngIf="isSignedIn">
+                    routerLink="#">
                     Settings
                 </a>
             </li>
@@ -55,7 +55,9 @@
     </nav>
     <button
         class="clear bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded"
-        (click)="signOut()" *ngIf="isSignedIn">
+        (click)="signOut()">
         Log Out
     </button>
 </header>
+
+<!-- use *ngIf="!isSignedIn" to show navbar and buttons -->
