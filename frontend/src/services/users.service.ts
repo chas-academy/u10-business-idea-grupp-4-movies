@@ -9,8 +9,8 @@ import { environment } from '../environments/environment';
 export class UsersService {
     constructor(private http: HttpClient) {}
     url = environment.apiUrl;
-    accesToken = localStorage.getItem('accessToken');
-    authHeader = `Bearer ${this.accesToken}`;
+    accessToken = localStorage.getItem('accessToken');
+    authHeader = `Bearer ${this.accessToken}`;
     contentType = 'application/json';
 
     getFetchData = (headers) => {

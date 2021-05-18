@@ -6,7 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { AllUsersComponent } from './components/allusers/allusers.component';
-import { SwipepageComponent } from './components/swipepage/swipepage.component';
+import { SwipePageComponent } from './components/swipepage/swipepage.component';
 
 const routes: Routes = [
     { path: '', component: LandingpageComponent, pathMatch: 'full' },
@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: UserProfileComponent },
     { path: 'users', component: AllUsersComponent },
-    { path: 'swipe', component: SwipepageComponent },
+    { path: 'swipe', component: SwipePageComponent },
 ];
 
 @NgModule({
