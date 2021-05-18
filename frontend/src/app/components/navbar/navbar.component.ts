@@ -16,7 +16,12 @@ export class NavbarComponent implements OnInit {
     ) {}
     isSignedIn: boolean;
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.auth.userAuthState.subscribe((val) => {
+            console.log(val);
+            this.isSignedIn = val;
+        });
+    }
     // Signout
     signOut() {
         this.auth.setAuthState(false);

@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AddfriendController;
 
 /*
