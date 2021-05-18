@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AddfriendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,9 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
+    // movies
     Route::get('/movies', [MovieController::class, 'index']);
+
+    //friends
+    Route::post('/users', [AddfriendController::class, 'index']);
 });
