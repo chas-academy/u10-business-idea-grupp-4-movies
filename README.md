@@ -57,9 +57,11 @@ To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_Co
 - cd backend
 - install dependencies `composer install`
 - Create .env file `cp .env.example .env`
+- Fill in TMDB_KEY with your TMDB API key
 - generate app key `php artisan key:generate` 
 - run project with docker `./vendor/bin/sail up`
 - create the tables `./vendor/bin/sail artisan migrate`
+- seed the tables with `./vendor/bin/sail artisan db:seed`
 
 ### Angular 
 Frontend is generated with angular CLI, so a good idea to install it `npm install -g @angular/cli` 
