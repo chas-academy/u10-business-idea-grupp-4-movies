@@ -1,4 +1,4 @@
-<header class=" border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center lg:text-right
+<header *ngIf="isSignedIn" class=" border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center lg:text-right
     lg:mb-3">
 
     <div class="flex items-center justify-between mb-4 md:mb-0 ">
@@ -39,21 +39,9 @@
                     Settings
                 </a>
             </li>
-            <!-- <li class="md:ml-4">
-                <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    *ngIf="!isSignedIn" routerLink="/login">
-                    Log In
-                </a>
-            </li>
-            <li class="md:ml-4">
-                <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    *ngIf="!isSignedIn" routerLink="/login">
-                    Register
-                </a>
-            </li> -->
         </ul>
     </nav>
-    <button
+    <button *ngIf="isSignedIn"
         class="clear bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded"
         (click)="signOut()">
         Log Out

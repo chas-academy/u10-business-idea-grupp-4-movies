@@ -15,7 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
-import { SwipepageComponent } from './components/swipepage/swipepage.component';
+import { SwipePageComponent } from './components/swipepage/swipepage.component';
 import { AllUsersComponent } from './components/allusers/allusers.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
@@ -28,7 +28,7 @@ import { AuthInterceptor } from '../services/auth.interceptor';
         LoginComponent,
         RegisterComponent,
         LandingpageComponent,
-        SwipepageComponent,
+        SwipePageComponent,
         AllUsersComponent,
         UserProfileComponent,
     ],

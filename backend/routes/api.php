@@ -30,7 +30,7 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
     // movies
-    Route::get('/movies', [MovieController::class, 'index']);
+    Route::post('/swipe', [MovieController::class, 'index']);
 
     //friends
     Route::post('/users', [AddfriendController::class, 'index']);
