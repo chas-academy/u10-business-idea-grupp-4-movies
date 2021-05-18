@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\movie;
+use App\Models\Movie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MovieFactory extends Factory
@@ -12,7 +12,7 @@ class MovieFactory extends Factory
      *
      * @var string
      */
-    protected $model = movie::class;
+    protected $model = Movie::class;
 
     /**
      * Define the model's default state.
@@ -24,8 +24,9 @@ class MovieFactory extends Factory
         return [
             'title' => $this->faker->text(20),
             'description' => $this->faker->text(100),
-            'year' => $this->faker->year,
-            'runtime' => $this->faker->numberBetween(60, 420),
+            'year' => $this->faker->numberBetween(1970, 2021),
+            // 'year' => 2002,
+            'runtime' => $this->faker->numberBetween(69, 420),
             'genre' => $this->faker->word,
             'rating' => $this->faker->numberBetween(0, 10)
         ];

@@ -16,14 +16,16 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        // return view('movies-all', ['movies' => $movies]);
 
-        dd($movies);
+        // var_dump($movies->title);
 
-        // return $movie;
-        // return response()->json([
-        //     'movies' => $movies->title
-        // ]);
+        // foreach ($movies as $movie) {
+        //     $title = $movie->title;
+
+        //     var_dump($title);
+        // }
+
+        return $movies;
     }
 
     /**
