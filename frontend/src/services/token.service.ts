@@ -33,6 +33,7 @@ export class TokenService {
                     : false;
             }
         } else {
+            console.log('payload falsy');
             return false;
         }
     }
