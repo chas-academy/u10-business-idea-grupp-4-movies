@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\AddfriendController;
+use App\Http\Controllers\SwipeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,16 +24,19 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-    //user
+    // user
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
-    // movies
+    // swipe
     Route::post('/swipe', [MovieController::class, 'index']);
+    // add
+    Route::post('/swipe/add', [SwipeController::class, 'store']);
+    Route::get('/swipe/', [SwipeController::class, 'index']);
 
-    //friends
+    // friends
     Route::post('/users', [AddfriendController::class, 'index']);
 });
