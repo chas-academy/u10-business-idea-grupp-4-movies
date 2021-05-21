@@ -7,14 +7,19 @@ import { UserProfileComponent } from './components/userpage/userpage.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { AllUsersComponent } from './components/allusers/allusers.component';
 import { SwipePageComponent } from './components/swipepage/swipepage.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     { path: '', component: LandingpageComponent, pathMatch: 'full' },
+    { path: 'swipe', component: SwipePageComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'profile', component: UserProfileComponent },
-    { path: 'users', component: AllUsersComponent },
-    { path: 'swipe', component: SwipePageComponent },
+    {
+        path: 'profile',
+        component: UserProfileComponent,
+        canActivate: [AuthGuard],
+    },
+    { path: 'users', component: AllUsersComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
