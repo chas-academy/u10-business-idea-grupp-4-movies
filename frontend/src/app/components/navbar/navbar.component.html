@@ -1,48 +1,42 @@
-<header *ngIf="isSignedIn" class=" border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center lg:text-right
+<header *ngIf="isSignedIn" class=" border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4 text-center 
     lg:mb-3">
 
-    <div class="flex items-center justify-between mb-4 md:mb-0 ">
-        <h1 class="leading-none text-2xl text-grey-darkest text-center">
-            <a class="no-underline text-grey-darkest hover:text-black" routerLink="/profile">
-                MovieMatcher
-            </a>
-        </h1>
-
-        <a class="text-black hover:text-orange md:hidden" href="#">
-            <i class="fa fa-2x fa-bars"></i>
+    <!-- <div class="flex items-center justify-between mb-4 md:mb-0 "> -->
+    <h1 *ngIf="isSignedIn" class="leading-none text-2xl text-grey-darkest text-center">
+        <a class="no-underline text-grey-darkest hover:text-black" routerLink="/swipe">
+            MovieMatcher
         </a>
-    </div>
+    </h1>
+
+    <a class="text-black hover:text-orange md:hidden" href="#">
+        <i class="fa fa-2x fa-bars"></i>
+    </a>
+    <!-- </div> -->
 
     <nav>
-        <ul class="list-reset md:flex md:items-center">
-            <li *ngIf="isSignedIn" class="md:ml-4">
+        <ul *ngIf="isSignedIn" class="list-reset md:flex md:items-center">
+            <li class="md:ml-4">
                 <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
                     routerLink="/swipe">
                     Swipe
                 </a>
             </li>
-            <li *ngIf="isSignedIn" class="md:ml-4">
+            <li class="md:ml-4">
                 <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
                     routerLink="/profile">
                     Profile
                 </a>
             </li>
-            <li *ngIf="isSignedIn" class="md:ml-4">
+            <li class="md:ml-4">
                 <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
                     routerLink="/users">
                     Users
                 </a>
             </li>
-            <li *ngIf="isSignedIn" class="md:ml-4">
-                <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0"
-                    routerLink="#">
-                    Settings
-                </a>
-            </li>
         </ul>
     </nav>
     <button *ngIf="isSignedIn"
-        class="clear bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded"
+        class="bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded"
         (click)="signOut()">
         Log Out
     </button>
