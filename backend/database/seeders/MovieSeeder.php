@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Movie;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
 
@@ -16,12 +15,7 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        //     Movie::factory()
-        //         ->count(15)
-        //         ->create();
-        // }
         $numberOfMovies = 10; // Input amount of Movies to be imported from API to DB.
-
         $movieCount = 0;
         $movieRetrieveTries = 0;
 
@@ -29,10 +23,7 @@ class MovieSeeder extends Seeder
 
         while ($movieCount < $numberOfMovies) {
             $Movies = Http::get("https://api.themoviedb.org/3/movie/{$movieRetrieveTries}?api_key={$APIkey}")->json();
-
-
             if (isset($Movies['id']) && isset($Movies['title']) && isset($Movies['overview']) && isset($Movies['release_date']) && isset($Movies['poster_path'])) {
-
                 // Importing Movies
                 Movie::factory()
                     ->count(1)
@@ -44,7 +35,7 @@ class MovieSeeder extends Seeder
                         'runtime' => $Movies['runtime'],
                         'genre' =>  implode("|", array_column($Movies['genres'], 'name')),
                         'rating' => $Movies['vote_average'],
-                        // 'poster' => $Movies['poster_path']
+                        'img' => $Movies['poster_path']
                     ]);
                 $movieCount++;
             }

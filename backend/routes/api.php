@@ -7,7 +7,6 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\AddfriendController;
 use App\Http\Controllers\SwipeController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
