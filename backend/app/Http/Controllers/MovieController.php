@@ -16,15 +16,6 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-
-        // var_dump($movies->title);
-
-        // foreach ($movies as $movie) {
-        //     $title = $movie->title;
-
-        //     var_dump($title);
-        // }
-
         return $movies;
     }
 
@@ -58,7 +49,6 @@ class MovieController extends Controller
     public function show(movie $movie)
     {
         //
-
     }
 
     /**
