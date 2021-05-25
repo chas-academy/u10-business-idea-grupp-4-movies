@@ -9,6 +9,12 @@ use App\Models\User;
 
 class AddfriendController extends Controller
 {
+    protected $user;
+
+    public function __construct()
+    {
+        $this->user = auth()->user();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,7 +61,21 @@ class AddfriendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $friend = new Addfriend();
+        $friend->user1 = auth()->id();
+        $friend->user2 = $request->newFriend_id;
+
+        if ($this->user->addFriend()->save($friend)) {
+            return response()->json([
+                'success' => true,
+                'message' => 'friend request sent'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'not sent'
+            ]);
+        }
     }
 
     /**
@@ -66,7 +86,19 @@ class AddfriendController extends Controller
      */
     public function show(addfriend $addfriend)
     {
-        //
+        if (Addfriend::where('user1', auth()->id())->where('status', 0)) {
+            $friendRequest = Addfriend::where('user1', auth()->id())->where('status', 0)->get();
+            return response()->json([
+                'success' => true,
+                'req' => $friendRequest
+            ]);
+        } elseif (Addfriend::where('user2', auth()->id())->where('status', 0)) {
+            $friendRequest = Addfriend::where('user2', auth()->id())->where('status', 0)->get();
+            return response()->json([
+                'success' => true,
+                'req' => $friendRequest
+            ]);
+        }
     }
 
     /**

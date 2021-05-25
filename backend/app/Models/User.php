@@ -67,4 +67,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Swipe::class);
     }
+
+    public function friendList()
+    {
+        return $this->hasMany(Addfriend::class);
+    }
 }

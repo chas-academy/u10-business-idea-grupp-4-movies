@@ -17,6 +17,7 @@ class CreateAddfriendsTable extends Migration
             $table->id();
             $table->integer('user1');
             $table->integer('user2');
+            $table->integer('user_id');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
