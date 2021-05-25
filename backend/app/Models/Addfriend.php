@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Addfriend extends Model
 {
     use HasFactory;
+
+    protected $table = 'addfriends';
+
+    protected $fillable = [
+        'sender_id',
+        'receiver_id',
+    ];
 }
