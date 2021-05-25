@@ -13,15 +13,20 @@ export class UsersService {
     authHeader = `Bearer ${this.accessToken}`;
     contentType = 'application/json';
 
-    getFetchData = (headers) => {
+    getFetchData(headers) {
         const fetchData = {
             headers: new HttpHeaders(headers),
         };
         return fetchData;
-    };
+    }
 
     getUsers(): Observable<any> {
         const fetchData = this.getFetchData({ Authorization: this.authHeader });
         return this.http.post(`${this.url}/users`, fetchData);
+    }
+
+    getFriendRequests(): Observable<any> {
+        const fetchData = this.getFetchData({ Authorization: this.authHeader });
+        return this.http.get(`${this.url}/friendRequests`, fetchData);
     }
 }

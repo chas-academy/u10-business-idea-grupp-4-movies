@@ -55,7 +55,22 @@ class AddfriendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newFriend = Addfriend::create([
+            'sender_id' => auth()->id(),
+            'receiver_id' => $request->newFriend_id,
+        ]);
+
+        if ($newFriend) {
+            return response()->json([
+                'success' => true,
+                'message' => 'friend request sent'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'not sent'
+            ]);
+        }
     }
 
     /**
@@ -66,7 +81,20 @@ class AddfriendController extends Controller
      */
     public function show(addfriend $addfriend)
     {
-        //
+        /* sender name nestled in array called name */
+        $friendRequests = Addfriend::where('receiver_id', auth()->id())->where('status', 0)->get();
+        foreach ($friendRequests as $request) {
+            $request->name = User::where('id', $request->sender_id)->get('name');
+        }
+        if ($friendRequests) {
+            return response()->json([
+                'friendRequest' => $friendRequests
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'no pending requests'
+            ]);
+        }
     }
 
     /**

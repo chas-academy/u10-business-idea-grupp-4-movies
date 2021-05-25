@@ -1,11 +1,21 @@
 <div class="allusers-wrapper justify-center">
     <div class="space-y-3">
         <div class="text-center">
-            <h3 class="text-xl">Users</h3>
+            <h1 class="text-xl">Users</h1>
             <p>
                 Here's where you'll find your friends, be able to add them and
                 start MovieMatching
             </p>
+        </div>
+        <div *ngIf="friendRequests">
+            <h3>Pending requests</h3>
+            <div *ngFor="let friendRequest of friendRequests">
+                <ul>
+                    <li>{{ friendRequest.id }}</li>
+                    <li>{{ friendRequest.sender_id }}</li>
+                    <li>{{ friendRequest.name[0].name }}</li>
+                </ul>
+            </div>
         </div>
         <div class="px-3 py-3 flex justify-center">
             <div class="w-3/5 shadow rounded-lg overflow-hidden">

@@ -9,13 +9,20 @@ import { UsersService } from '../../../services/users.service';
 export class AllUsersComponent implements OnInit {
     constructor(public userService: UsersService) {
         this.handleUsers();
+        this.handleFriendRequests();
     }
     users: any;
+    friendRequests: any;
 
     ngOnInit(): void {}
 
     handleUsers() {
         const request = this.userService.getUsers();
         request.subscribe((data) => (this.users = data.users));
+    }
+
+    handleFriendRequests() {
+        const request = this.userService.getFriendRequests();
+        request.subscribe((data) => (this.friendRequests = data.friendRequest));
     }
 }
