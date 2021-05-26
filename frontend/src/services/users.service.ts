@@ -30,20 +30,15 @@ export class UsersService {
         return this.http.get(`${this.url}/friendRequests`, fetchData);
     }
 
-    sendFriendRequest(user): Observable<any> {
-        // const { id } = user;
-        // const requestBody = { id: id };
-        console.log(user);
-        const fetchData = this.getFetchData({ Authorization: this.authHeader });
-        return this.http.post(`${this.url}/addfriend`, user, fetchData);
+    sendFriendRequest(id) {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
+        const request = this.http.post(
+            `${this.url}/addfriend/${id}`,
+            fetchData
+        );
+        request.subscribe((message) => message);
     }
-
-    // sendFriendRequest(user): Observable<any> {
-    //     const headers = new HttpHeaders();
-    //     const requestBody = user;
-    //     console.log(requestBody);
-    //     return this.http.post(`${this.url}/addfriend`, requestBody, {
-    //         headers: headers,
-    //     });
-    // }
 }

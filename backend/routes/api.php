@@ -38,6 +38,6 @@ Route::group([
 
     // friends
     Route::get('/users', [AddfriendController::class, 'index']);
-    Route::post('/addfriend', [AddfriendController::class, 'store']);
+    Route::post('/addfriend/{id}', [AddfriendController::class, 'store']);
     Route::get('/friendRequests', [AddfriendController::class, 'show']);
 });
