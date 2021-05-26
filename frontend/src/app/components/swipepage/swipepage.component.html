@@ -1,6 +1,6 @@
 <div class="swipepage-wrapper space-y-3">
-    <div *ngFor="let movie of movies" class="swipe-card">
-        <img
+    <!-- <div *ngFor="let movie of movies" class="swipe-card"> -->
+        <!-- <img
             class="mx-auto"
             src="https://image.tmdb.org/t/p/w342/{{ movie.img }}"
             alt="Poster for movie"
@@ -28,6 +28,17 @@
                     No
                 </button>
             </div>
+        </div> -->
+    <!-- </div> -->
+    <div class="tbg">
+        <div class="tbgwrap">
+            <app-cards  [parentSubject]="parentSubject">
+            </app-cards>
+          <div class="tcontrols">
+            <div (click)='cardAnimation("swipeleft")'  class="tno"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="ti"><i class="fa fa-info" aria-hidden="true"></i></div>
+            <div (click)='cardAnimation("swiperight")' class="tyes"><i class="fa fa-heart" aria-hidden="true"></i></div>
+          </div>
         </div>
     </div>
 </div>
