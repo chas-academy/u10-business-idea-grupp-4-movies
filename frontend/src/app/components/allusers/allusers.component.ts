@@ -25,4 +25,11 @@ export class AllUsersComponent implements OnInit {
         const request = this.userService.getFriendRequests();
         request.subscribe((data) => (this.friendRequests = data.friendRequest));
     }
+
+    handleAddFriend(user) {
+        // const request = this.userService.sendFriendRequest(user);
+        // request.subscribe((data) => (this.friendRequests = data.friendRequest));
+        this.userService.sendFriendRequest(user);
+        console.log(user);
+    }
 }
