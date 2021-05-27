@@ -41,4 +41,5 @@ Route::group([
     Route::post('/addfriend/{id}', [AddfriendController::class, 'store']);
     Route::get('/friendRequests', [AddfriendController::class, 'show']);
     Route::put('/acceptfriendrequest/{id}', [AddfriendController::class, 'update']);
+    Route::get('/friendlist', [AddfriendController::class, 'friendList']);
 });

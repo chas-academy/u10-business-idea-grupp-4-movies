@@ -30,6 +30,11 @@ export class UsersService {
         return this.http.get(`${this.url}/friendRequests`, fetchData);
     }
 
+    getFriendList(): Observable<any> {
+        const fetchData = this.getFetchData({ Authorization: this.authHeader });
+        return this.http.get(`${this.url}/friendlist`, fetchData);
+    }
+
     sendFriendRequest(id) {
         const fetchData = this.getFetchData({
             Authorization: this.authHeader,
