@@ -10,9 +10,11 @@ export class AllUsersComponent implements OnInit {
     constructor(public userService: UsersService) {
         this.handleUsers();
         this.handleFriendRequests();
+        this.handleFriendList();
     }
     users: any;
     friendRequests: any;
+    friends: any;
 
     ngOnInit(): void {}
 
@@ -24,6 +26,11 @@ export class AllUsersComponent implements OnInit {
     handleFriendRequests() {
         const request = this.userService.getFriendRequests();
         request.subscribe((data) => (this.friendRequests = data.friendRequest));
+    }
+
+    handleFriendList() {
+        const request = this.userService.getFriendList();
+        request.subscribe((data) => (this.friends = data.friendlist));
     }
 
     handleAddFriend(id) {

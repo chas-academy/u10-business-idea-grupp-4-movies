@@ -38,6 +38,24 @@ class AddfriendController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function friendList()
+    {
+        if (auth()->user()) {
+            $friends = Addfriend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->where('status', 1)->get();
+            foreach ($friends as $friend) {
+                $friend->name = User::where('id', $friend->sender_id)->get('name', 'email');
+            }
+            return response()->json([
+                'friendlist' =>  $friends
+            ]);
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
