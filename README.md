@@ -55,7 +55,7 @@ To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_Co
 ### Laravel 
 - clone this repo
 - cd backend
-- install dependencies `composer install`
+- install dependencies `composer install` (run composer update if needed)
 - Create .env file `cp .env.example .env`
 - Fill in TMDB_KEY with your TMDB API key
 - generate app key `php artisan key:generate` 
