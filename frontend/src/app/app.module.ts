@@ -19,7 +19,6 @@ import { SwipePageComponent } from './components/swipepage/swipepage.component';
 import { AllUsersComponent } from './components/allusers/allusers.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
-import { CardsComponent } from './components/cards/cards.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -33,7 +32,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         SwipePageComponent,
         AllUsersComponent,
         UserProfileComponent,
-        CardsComponent,
     ],
     imports: [
         BrowserModule,

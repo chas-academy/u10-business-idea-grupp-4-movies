@@ -1,13 +1,22 @@
-<div class="swipepage-wrapper space-y-3">
+
+<div *ngIf='movies' class="swipepage-wrapper space-y-3">
     <div class="tbg">
         <div class="tbgwrap">
-            <app-cards  [parentSubject]="parentSubject">
-            </app-cards>
+            <div class="swipe-card"> 
+                <div class="tphoto" [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState($event)" (swipeleft)='startAnimation("swipeleft")'  (swiperight)='startAnimation("swiperight")'>     
+                        <img src="https://image.tmdb.org/t/p/w342/{{ movies[index].img }}" alt="Poster for movie" class="center"/>
+                </div>
+                    <div class="tname">{{movies[index].title}}, <span class="age">{{movies[index].genre}}</span></div>
+                    <div class="tinfo">{{ movies[index].rating }}</div>
+                    <div class="year">{{ movies[index].year }}</div> 
+                    <p class="mx-auto text-center w-3/5">{{ movies[index].description }}</p> 
+                
+            </div>
         </div>
     </div>
     <div class="tcontrols">
-        <div (click)='cardAnimation("swipeleft")'  class="tno"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div (click)='cardAnimation("swipeleft", movies[index].id)'  class="tno"><i class="fa fa-times" aria-hidden="true"></i></div>
         <div class="ti"><i class="fa fa-info" aria-hidden="true"></i></div>
-        <div (click)='cardAnimation("swiperight")' class="tyes"><i class="fa fa-heart" aria-hidden="true"></i></div>
+        <div (click)='cardAnimation("swiperight", movies[index].id)' class="tyes"><i class="fa fa-heart" aria-hidden="true"></i></div>
       </div>
 </div>

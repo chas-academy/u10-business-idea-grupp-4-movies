@@ -33,7 +33,7 @@ Route::group([
     // swipe
     Route::post('/swipe', [MovieController::class, 'index']);
     // add
-    Route::post('/swipe/add', [SwipeController::class, 'store']);
+    Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
     Route::get('/swipe/', [SwipeController::class, 'index']);
 
     // friends

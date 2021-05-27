@@ -29,4 +29,5 @@ export class UsersService {
         const fetchData = this.getFetchData({ Authorization: this.authHeader });
         return this.http.get(`${this.url}/friendRequests`, fetchData);
     }
+
 }

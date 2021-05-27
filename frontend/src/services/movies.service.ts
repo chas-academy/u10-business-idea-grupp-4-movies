@@ -24,4 +24,17 @@ export class MoviesService {
         const fetchData = this.getFetchData({ Authorization: this.authHeader });
         return this.http.post(`${this.url}/swipe`, fetchData);
     }
+
+    swipeMovie(id) {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
+        const request = this.http.post(
+            `${this.url}/swipe/add/${id}`,
+            fetchData
+        );
+        request.subscribe((message) => message);
+        console.log('yes');
+    }
 }

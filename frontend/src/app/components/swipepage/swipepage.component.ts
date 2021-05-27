@@ -1,26 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../../../services/movies.service';
+
+import { trigger, keyframes, animate, transition } from "@angular/animations";
+import * as kf from '../swipepage/keyframes';
 import { Subject } from 'rxjs';
+import {Movie} from '../swipepage/movie';
 
 @Component({
     selector: 'app-swipepage',
     templateUrl: './swipepage.component.html',
     styleUrls: ['./swipepage.component.scss'],
+    animations: [
+      trigger('cardAnimator', [
+        transition('* => swiperight', animate(750, keyframes(kf.swiperight))),
+        transition('* => swipeleft', animate(750, keyframes(kf.swipeleft)))
+      ])
+    ]
 })
 export class SwipePageComponent implements OnInit {
-    parentSubject:Subject<string> = new Subject()
+  public movies: Movie[];
+  public index = 0;
+  @Input()
+
+  animationState: string;
 
     constructor(public movieService: MoviesService) {
         this.handleMovies();
     }
 
-    cardAnimation(value) {
-        this.parentSubject.next(value);
+    ngOnInit() {
+        this.startAnimation(event)
+    } 
+
+    startAnimation(state) {
+      if (!this.animationState) {
+        this.animationState = state;
+      }
     }
 
-    movies: any;
+     cardAnimation(value, id) {
+        // next(value);
+        console.log(id);
+        this.index++;
 
-    ngOnInit(): void {}
+        if(value==='swiperight') {
+            this.handleSwipeMovie(id);
+        }
+      }
+  
+    resetAnimationState(state) {
+      this.animationState = '';
+    }
+  
+  
+    // ngOnDestroy() {
+    //   this.unsubscribe();
+    // }
 
     handleMovies() {
         const request = this.movieService.getMovies();
@@ -28,5 +63,9 @@ export class SwipePageComponent implements OnInit {
             console.log(data);
             this.movies = data;
         });
+    }
+
+    handleSwipeMovie (id) {
+        this.movieService.swipeMovie(id);
     }
 }
