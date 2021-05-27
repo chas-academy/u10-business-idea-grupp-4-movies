@@ -49,7 +49,7 @@ class SwipeController extends Controller
     {
         $swipe = new Swipe();
         $swipe->user_id = auth()->id();
-        $swipe->movie_id = $request->movie_id;
+        $swipe->movie_id = $id;
 
         if ($this->user->swipedMovies()->save($swipe)) {
             return response()->json([

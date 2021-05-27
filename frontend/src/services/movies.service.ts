@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// tslint:disable-next-line: no-submodule-imports
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
@@ -13,19 +14,19 @@ export class MoviesService {
     authHeader = `Bearer ${this.accessToken}`;
     contentType = 'application/json';
 
-    getFetchData = (headers) => {
+    getFetchData(headers: string | { [name: string]: string | string[] }) {
         const fetchData = {
             headers: new HttpHeaders(headers),
         };
         return fetchData;
-    };
+    }
 
     getMovies(): Observable<any> {
         const fetchData = this.getFetchData({ Authorization: this.authHeader });
         return this.http.post(`${this.url}/swipe`, fetchData);
     }
 
-    swipeMovie(id) {
+    swipeMovie(id: any) {
         const fetchData = this.getFetchData({
             Authorization: this.authHeader,
             'Content-Type': this.contentType,
@@ -35,6 +36,5 @@ export class MoviesService {
             fetchData
         );
         request.subscribe((message) => message);
-        console.log('yes');
     }
 }

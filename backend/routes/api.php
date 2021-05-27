@@ -34,7 +34,7 @@ Route::group([
     Route::post('/swipe', [MovieController::class, 'index']);
     // add
     Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
-    Route::get('/swipe/', [SwipeController::class, 'index']);
+    Route::get('/swipe', [SwipeController::class, 'index']);
 
     // friends
     Route::post('/users', [AddfriendController::class, 'index']);
