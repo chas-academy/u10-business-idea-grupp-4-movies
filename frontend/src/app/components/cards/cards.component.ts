@@ -29,11 +29,11 @@ export class CardsComponent implements OnInit {
     constructor(public movieService: MoviesService) {
         this.handleMovies();
     }
-    // movies: any;
 
     ngOnInit() {
       this.parentSubject.subscribe(event => {
         this.startAnimation(event)
+        console.log(this.movies);
       });
     } 
 
