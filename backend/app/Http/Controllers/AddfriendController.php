@@ -38,6 +38,24 @@ class AddfriendController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function friendList()
+    {
+        if (auth()->user()) {
+            $friends = Addfriend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->where('status', 1)->get();
+            foreach ($friends as $friend) {
+                $friend->name = User::where('id', $friend->sender_id)->get('name', 'email');
+            }
+            return response()->json([
+                'friendlist' =>  $friends
+            ]);
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -53,11 +71,11 @@ class AddfriendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $newFriend = Addfriend::create([
             'sender_id' => auth()->id(),
-            'receiver_id' => $request->newFriend_id,
+            'receiver_id' => $id
         ]);
 
         if ($newFriend) {
@@ -115,9 +133,20 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, addfriend $addfriend)
+    public function update(Request $request, addfriend $addfriend, $id)
     {
-        //
+        $friendRequest = Addfriend::where('id', $id)->first();
+        $friendRequest->status = '1';
+        
+        if ($friendRequest->save()) {
+            return response()->json([
+                'message' => 'Friendrequest accepted'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Failed to add friend'
+            ]);
+        }
     }
 
     /**
