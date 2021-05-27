@@ -115,9 +115,20 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, addfriend $addfriend)
+    public function update(Request $request, addfriend $addfriend, $id)
     {
-        //
+        $friendRequest = Addfriend::where('id', $id)->first();
+        $friendRequest->status = '1';
+        
+        if ($friendRequest->save()) {
+            return response()->json([
+                'message' => 'Friendrequest accepted'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Failed to add friend'
+            ]);
+        }
     }
 
     /**

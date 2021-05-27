@@ -41,4 +41,16 @@ export class UsersService {
         );
         request.subscribe((message) => message);
     }
+
+    acceptFriendRequest(id) {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
+        const request = this.http.put(
+            `${this.url}/acceptfriendrequest/${id}`,
+            fetchData
+        );
+        request.subscribe((message) => message);
+    }
 }

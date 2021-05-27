@@ -34,10 +34,11 @@ Route::group([
     Route::post('/swipe', [MovieController::class, 'index']);
     // add
     Route::post('/swipe/add', [SwipeController::class, 'store']);
-    Route::get('/swipe/', [SwipeController::class, 'index']);
+    Route::get('/swipe', [SwipeController::class, 'index']);
 
     // friends
     Route::get('/users', [AddfriendController::class, 'index']);
     Route::post('/addfriend/{id}', [AddfriendController::class, 'store']);
     Route::get('/friendRequests', [AddfriendController::class, 'show']);
+    Route::put('/acceptfriendrequest/{id}', [AddfriendController::class, 'update']);
 });
