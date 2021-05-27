@@ -45,11 +45,11 @@ class SwipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $swipe = new Swipe();
         $swipe->user_id = auth()->id();
-        $swipe->movie_id = $request->movie_id;
+        $swipe->movie_id = $id;
 
         if ($this->user->swipedMovies()->save($swipe)) {
             return response()->json([

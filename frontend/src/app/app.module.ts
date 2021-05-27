@@ -19,6 +19,7 @@ import { SwipePageComponent } from './components/swipepage/swipepage.component';
 import { AllUsersComponent } from './components/allusers/allusers.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { AuthInterceptor } from '../services/auth.interceptor';
         GoogleMapsModule,
         ReactiveFormsModule,
         FormsModule,
+        BrowserAnimationsModule
     ],
     providers: [
         {
