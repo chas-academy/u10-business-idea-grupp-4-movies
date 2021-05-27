@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
     canActivate() {
         return this.auth.userAuthState.pipe(
             map((isSignedIn) => {
-                console.log(isSignedIn);
                 if (isSignedIn) {
                     return true;
                 } else {

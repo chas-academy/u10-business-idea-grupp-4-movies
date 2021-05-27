@@ -32,9 +32,6 @@ export class TokenService {
                     ? true
                     : false;
             }
-        } else {
-            console.log('payload falsy');
-            return false;
         }
     }
 

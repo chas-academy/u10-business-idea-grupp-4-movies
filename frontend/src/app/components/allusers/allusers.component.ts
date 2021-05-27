@@ -37,8 +37,9 @@ export class AllUsersComponent implements OnInit {
         this.userService.sendFriendRequest(id);
     }
 
-    handleacceptRequest(id) {
+    handleAcceptRequest(id) {
         this.userService.acceptFriendRequest(id);
         this.handleFriendRequests();
+        this.handleFriendList();
     }
 }
