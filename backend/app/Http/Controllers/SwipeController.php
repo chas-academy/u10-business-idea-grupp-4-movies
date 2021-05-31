@@ -22,22 +22,23 @@ class SwipeController extends Controller
      */
     public function index()
     {
-        return $this->user->swipedMovies()->get(['movie_id', 'user_id']);
+        // return $this->user->swipedMovies()->get(['movie_id', 'user_id']);
+        return Swipe::get(['movie_id', 'user_id']);
     }
 
     public function match(Request $request)
     {
         $movieId =  $request->movieId;
         $friendId = $request->friendId;
-        $movie = Swipe::where('movie_id', $movieId);
-        if($movie->where('user_id', $friendId)) {
+        // $movie = Swipe::where('movie_id', $movieId)->get();
+        if(Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists()) {
             return response()->json([
-                'success' => true,
+                'match' => true,
                 'msg' => 'it\'s a match'
             ]);
         }else {
             return response()->json([
-                'success' => false,
+                'match' => false,
                 'msg' => 'it\'s not a match'
             ]);
         }
@@ -124,4 +125,45 @@ class SwipeController extends Controller
     {
         //
     }
+
+    public function printMatches(Request $request) {
+        $friendId = $request->friendId;
+        $movieId1 = Swipe::where('user_id', $friendId)->get();
+        $movieId2 = Swipe::where('user_id', auth()->id())->get();
+        
+        foreach ($movieId1 as $key) {
+            if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
+                $id[] = $key;
+            }
+        }
+        return response()->json([
+            'success' => $id
+        ]);
+    }
 }
+// $friendRequests = Addfriend::where('receiver_id', auth()->id())->where('status', 0)->get();
+//         foreach ($friendRequests as $request) {
+//             $request->name = User::where('id', $request->sender_id)->get('name');
+//         }
+//         if ($friendRequests) {
+//             return response()->json([
+//                 'friendRequest' => $friendRequests
+//             ]);
+
+
+// if($movieId2 === $movieId2) {
+//     $arrIntersect = array_intersect($movieId2, $movieId2);
+// }
+        // if(Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists())
+
+        // $movieId2 = Swipe::where('user_id', auth()->id())->get();
+        // // $movies = Movie::where('id', $movieId)->get();
+        // if ($movieId1 === $movieId2) {
+        //     return response()->json([
+        //          'success' => $movieId
+        //     ]);
+        // } else {
+        //     return response()->json([
+        //         'fail' => true
+        //     ]);
+        // }

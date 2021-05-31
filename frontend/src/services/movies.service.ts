@@ -23,7 +23,7 @@ export class MoviesService {
 
     getMovies(): Observable<any> {
         const fetchData = this.getFetchData({ Authorization: this.authHeader });
-        return this.http.post(`${this.url}/swipe`, fetchData);
+        return this.http.get(`${this.url}/movies`, fetchData);
     }
 
     swipeMovie(id: any, friendId: any) {
@@ -37,16 +37,25 @@ export class MoviesService {
             fetchData
         );
         request.subscribe((message) => message);
+        this.isMatched(id, friendId);
+    }
+
+    isMatched(id: any, friendId: any) {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
 
         const requestBody = {
             movieId: id,
             userId: friendId,
         };
-        const request2 = this.http.post(
+
+        const request = this.http.post(
             `${this.url}/match`,
             requestBody,
             fetchData
         );
-        request2.subscribe((message) => message);
+        request.subscribe((message) => console.log('m2', message));
     }
 }
