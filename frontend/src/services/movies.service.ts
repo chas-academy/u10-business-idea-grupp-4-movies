@@ -26,7 +26,8 @@ export class MoviesService {
         return this.http.post(`${this.url}/swipe`, fetchData);
     }
 
-    swipeMovie(id: any) {
+    swipeMovie(id: any, friendId: any) {
+        console.log(friendId);
         const fetchData = this.getFetchData({
             Authorization: this.authHeader,
             'Content-Type': this.contentType,
@@ -36,5 +37,16 @@ export class MoviesService {
             fetchData
         );
         request.subscribe((message) => message);
+
+        const requestBody = {
+            movieId: id,
+            userId: friendId,
+        };
+        const request2 = this.http.post(
+            `${this.url}/match`,
+            requestBody,
+            fetchData
+        );
+        request2.subscribe((message) => message);
     }
 }

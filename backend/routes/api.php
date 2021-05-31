@@ -35,6 +35,7 @@ Route::group([
     // add
     Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
     Route::get('/swipe', [SwipeController::class, 'index']);
+    Route::post('/match', [SwipeController::class, 'match']);
 
     // friends
     Route::get('/users', [AddfriendController::class, 'index']);

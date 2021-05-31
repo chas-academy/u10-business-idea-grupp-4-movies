@@ -25,6 +25,24 @@ class SwipeController extends Controller
         return $this->user->swipedMovies()->get(['movie_id', 'user_id']);
     }
 
+    public function match(Request $request)
+    {
+        $movieId =  $request->movieId;
+        $friendId = $request->friendId;
+        $movie = Swipe::where('movie_id', $movieId);
+        if($movie->where('user_id', $friendId)) {
+            return response()->json([
+                'success' => true,
+                'msg' => 'it\'s a match'
+            ]);
+        }else {
+            return response()->json([
+                'success' => false,
+                'msg' => 'it\'s not a match'
+            ]);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
