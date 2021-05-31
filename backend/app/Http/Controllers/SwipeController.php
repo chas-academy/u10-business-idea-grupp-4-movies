@@ -6,6 +6,8 @@ use App\Models\Swipe;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use App\Models\Movie;
+
 class SwipeController extends Controller
 {
 
@@ -133,11 +135,17 @@ class SwipeController extends Controller
         
         foreach ($movieId1 as $key) {
             if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
-                $matchedMovies[] = $key;
+                $matchedMoviesId[] = $key;
             }
         }
+
+        foreach ($matchedMoviesId as $key) {
+            $movie = Movie::find($key);
+            $matchedMovies[] = $movie;
+        }
+
         return response()->json([
-            'matchSuccess' => $matchedMovies
+            'matches' => $matchedMovies
         ]);
     }
 }
