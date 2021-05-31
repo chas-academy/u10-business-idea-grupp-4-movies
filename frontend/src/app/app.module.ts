@@ -20,6 +20,7 @@ import { AllUsersComponent } from './components/allusers/allusers.component';
 import { UserProfileComponent } from './components/userpage/userpage.component';
 import { AuthInterceptor } from '../services/auth.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatchesComponent } from './matches/matches.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         SwipePageComponent,
         AllUsersComponent,
         UserProfileComponent,
+        MatchesComponent,
     ],
     imports: [
         BrowserModule,

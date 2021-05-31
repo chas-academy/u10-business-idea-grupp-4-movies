@@ -133,37 +133,11 @@ class SwipeController extends Controller
         
         foreach ($movieId1 as $key) {
             if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
-                $id[] = $key;
+                $matchedMovies[] = $key;
             }
         }
         return response()->json([
-            'success' => $id
+            'matchSuccess' => $matchedMovies
         ]);
     }
 }
-// $friendRequests = Addfriend::where('receiver_id', auth()->id())->where('status', 0)->get();
-//         foreach ($friendRequests as $request) {
-//             $request->name = User::where('id', $request->sender_id)->get('name');
-//         }
-//         if ($friendRequests) {
-//             return response()->json([
-//                 'friendRequest' => $friendRequests
-//             ]);
-
-
-// if($movieId2 === $movieId2) {
-//     $arrIntersect = array_intersect($movieId2, $movieId2);
-// }
-        // if(Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists())
-
-        // $movieId2 = Swipe::where('user_id', auth()->id())->get();
-        // // $movies = Movie::where('id', $movieId)->get();
-        // if ($movieId1 === $movieId2) {
-        //     return response()->json([
-        //          'success' => $movieId
-        //     ]);
-        // } else {
-        //     return response()->json([
-        //         'fail' => true
-        //     ]);
-        // }

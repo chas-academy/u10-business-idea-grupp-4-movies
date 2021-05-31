@@ -1,0 +1,15 @@
+<div class="matches-container">
+    <form [formGroup]="matchedFriends">
+        <select (change)="selectFriend()" formControlName="matchedFriend">
+            <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id">{{ friend.userData[0].name }}
+            </option>
+        </select>
+    </form>
+    <div *ngIf="matchedMovies">
+        <ul class="matches">
+            <li class="matches-card">
+                <p *ngFor="let matchedMovie of matchedMovies">{{ matchedMovie.movie_id }}</p>
+            </li>
+        </ul>
+    </div>
+</div>

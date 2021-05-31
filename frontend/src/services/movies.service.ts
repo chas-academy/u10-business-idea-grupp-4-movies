@@ -58,4 +58,17 @@ export class MoviesService {
         );
         request.subscribe((message) => console.log('m2', message));
     }
+
+    getMatchedMovies(id): Observable<any> {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
+
+        const requestBody = {
+            friendId: id,
+        };
+
+        return this.http.post(`${this.url}/matches`, requestBody, fetchData);
+    }
 }
