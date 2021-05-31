@@ -38,6 +38,6 @@ export class MatchesComponent implements OnInit {
         const request = this.movieService.getMatchedMovies(
             this.matchedFriends.value
         );
-        request.subscribe((data) => (this.matchedMovies = data.matchSuccess));
+        request.subscribe((data) => (this.matchedMovies = data.matches));
     }
 }

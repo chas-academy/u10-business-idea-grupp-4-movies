@@ -8,7 +8,7 @@
     <div *ngIf="matchedMovies">
         <ul class="matches">
             <li class="matches-card">
-                <p *ngFor="let matchedMovie of matchedMovies">{{ matchedMovie.movie_id }}</p>
+                <p *ngFor="let matchedMovie of matchedMovies">{{ matchedMovie[0].title }}</p>
             </li>
         </ul>
     </div>
