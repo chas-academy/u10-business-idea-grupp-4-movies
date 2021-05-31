@@ -1,4 +1,8 @@
-<div class="matches-container">
+<div class="matches-container text-center pt-3">
+    <h2 class="text-xl">
+        Friends
+    </h2>
+    <p>Choose a friend from the drop down list to see your matches</p>
     <form [formGroup]="matchedFriends">
         <select (change)="selectFriend()" formControlName="matchedFriend">
             <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id">{{ friend.userData[0].name }}
