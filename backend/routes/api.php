@@ -31,10 +31,13 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
     // swipe
-    Route::post('/swipe', [MovieController::class, 'index']);
+    Route::get('/movies', [MovieController::class, 'index']);
+    Route::post('/matches', [SwipeController::class, 'printMatches']);
+
     // add
     Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
     Route::get('/swipe', [SwipeController::class, 'index']);
+    Route::post('/match', [SwipeController::class, 'match']);
 
     // friends
     Route::get('/users', [AddfriendController::class, 'index']);

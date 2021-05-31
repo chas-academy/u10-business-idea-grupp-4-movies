@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../../../services/movies.service';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { trigger, keyframes, animate, transition } from '@angular/animations';
 import * as kf from '../swipepage/keyframes';
-import { Subject } from 'rxjs';
 import { Movie } from '../swipepage/movie';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
     selector: 'app-swipepage',
@@ -25,13 +25,34 @@ export class SwipePageComponent implements OnInit {
     public index = 0;
     @Input()
     animationState: string;
+    friendList: FormGroup;
+    friends: any;
+    canSwipe: boolean;
 
-    constructor(public movieService: MoviesService) {
-        this.handleMovies();
+    constructor(
+        public movieService: MoviesService,
+        public fb: FormBuilder,
+        public userService: UsersService
+    ) {
+        this.handleFriendList();
+
+        this.friendList = this.fb.group({
+            friend: [],
+        });
     }
 
     ngOnInit() {
         this.startAnimation(event);
+    }
+
+    handleFriendList() {
+        const request = this.userService.getFriendList();
+        request.subscribe((data) => (this.friends = data.friendlist));
+    }
+
+    onChange() {
+        this.canSwipe = true;
+        this.handleMovies();
     }
 
     startAnimation(state) {
@@ -40,11 +61,10 @@ export class SwipePageComponent implements OnInit {
         }
     }
 
-    cardAnimation(value, id) {
+    cardAnimation(value, id, friendId) {
         this.index++;
-
         if (value === 'swiperight') {
-            this.handleSwipeMovie(id);
+            this.handleSwipeMovie(id, friendId);
         }
     }
 
@@ -59,7 +79,7 @@ export class SwipePageComponent implements OnInit {
         });
     }
 
-    handleSwipeMovie(id) {
-        this.movieService.swipeMovie(id);
+    handleSwipeMovie(id, friendId) {
+        this.movieService.swipeMovie(id, friendId);
     }
 }
