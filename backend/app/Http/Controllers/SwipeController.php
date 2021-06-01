@@ -133,19 +133,24 @@ class SwipeController extends Controller
         $movieId1 = Swipe::where('user_id', $friendId)->get();
         $movieId2 = Swipe::where('user_id', auth()->id())->get();
         
-        foreach ($movieId1 as $key) {
+        if ($movieId1 && $movieId2) {
+          foreach ($movieId1 as $key) {
             if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
                 $matchedMoviesId[] = $key;
+                } 
+            }
+            if (isset($matchedMoviesId)) {
+                foreach ($matchedMoviesId as $key) {
+                    $movie = Movie::find($key);
+                    $matchedMovies[] = $movie;
+                }
+                return response()->json([
+                    'matches' => $matchedMovies
+                ]);  
             }
         }
-
-        foreach ($matchedMoviesId as $key) {
-            $movie = Movie::find($key);
-            $matchedMovies[] = $movie;
-        }
-
-        return response()->json([
-            'matches' => $matchedMovies
+            return response()->json([
+            'matches' => false
         ]);
     }
 }
