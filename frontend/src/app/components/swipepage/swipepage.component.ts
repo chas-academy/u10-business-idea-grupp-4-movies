@@ -53,6 +53,7 @@ export class SwipePageComponent implements OnInit {
     onChange() {
         this.canSwipe = true;
         this.handleMovies();
+        console.log(this.friendList.value);
     }
 
     startAnimation(state) {
@@ -61,10 +62,10 @@ export class SwipePageComponent implements OnInit {
         }
     }
 
-    cardAnimation(value, id, friendId) {
+    cardAnimation(value, id) {
         this.index++;
         if (value === 'swiperight') {
-            this.handleSwipeMovie(id, friendId);
+            this.handleSwipeMovie(id, this.friendList.value);
         }
     }
 
