@@ -1,11 +1,14 @@
 <div *ngIf="friends">
     <form [formGroup]="friendList">
-        <h1>Select a friend to swipe against</h1>
-        <select (change)="onChange()" formControlName="friend" class="bg-gray-300">
-            <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id">
-                {{ friend.userData[0].name }}
-            </option>
-        </select>
+        <div class="flex flex-col justify-center space-y-3 items-center">
+            <h1 class="text-center pt-3">Select a friend to swipe against</h1>
+
+            <select (change)="onChange()" formControlName="friend" class="w-52 justify-center bg-gray-300">
+                <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id" class="text-black">
+                    {{ friend.userData[0].name }}
+                </option>
+            </select>
+        </div>
     </form>
     <div *ngIf="movies" class="swipepage-wrapper space-y-3">
         <div class="tbg">
