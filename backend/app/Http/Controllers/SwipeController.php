@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Swipe;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 use App\Models\Movie;
 
 class SwipeController extends Controller
@@ -24,21 +23,20 @@ class SwipeController extends Controller
      */
     public function index()
     {
-        // return $this->user->swipedMovies()->get(['movie_id', 'user_id']);
-        return Swipe::get(['movie_id', 'user_id']);
+        return $this->user->swipedMovies()->get(['movie_id', 'user_id']);
     }
 
     public function match(Request $request)
     {
         $movieId =  $request->movieId;
         $friendId = $request->friendId;
-        // $movie = Swipe::where('movie_id', $movieId)->get();
-        if(Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists()) {
+        
+        if (Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists()) {
             return response()->json([
                 'match' => true,
                 'msg' => 'it\'s a match'
             ]);
-        }else {
+        } else {
             return response()->json([
                 'match' => false,
                 'msg' => 'it\'s not a match'
@@ -53,12 +51,8 @@ class SwipeController extends Controller
      */
     protected function create($movieId)
     {
+        //
     }
-
-    // public function create()
-    // {
-    //     //
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -72,15 +66,20 @@ class SwipeController extends Controller
         $swipe->user_id = auth()->id();
         $swipe->movie_id = $id;
 
-        if ($this->user->swipedMovies()->save($swipe)) {
-            return response()->json([
-                'success' => true
-            ]);
-        } else {
-            return response()->json([
-                'success' => false
-            ]);
+        if (!$this->user->swipedMovies()->where('movie_id', $id)->exists()) {
+            if ($this->user->swipedMovies()->save($swipe)) {
+                return response()->json([
+                    'success' => true
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false
+                ]);
+            }
         }
+        return response()->json([
+            'msg' => 'aldready swiped'
+        ]);
     }
 
     /**
@@ -128,16 +127,17 @@ class SwipeController extends Controller
         //
     }
 
-    public function printMatches(Request $request) {
+    public function printMatches(Request $request)
+    {
         $friendId = $request->friendId;
-        $movieId1 = Swipe::where('user_id', $friendId)->get();
-        $movieId2 = Swipe::where('user_id', auth()->id())->get();
+        $movieId1 = Swipe::where('user_id', $friendId)->get('movie_id');
+        $movieId2 = Swipe::where('user_id', auth()->id())->get('movie_id');
         
-        if ($movieId1 && $movieId2) {
-          foreach ($movieId1 as $key) {
-            if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
-                $matchedMoviesId[] = $key;
-                } 
+        if (isset($movieId1) && isset($movieId2)) {
+            foreach ($movieId1 as $key) {
+                if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
+                    $matchedMoviesId[] = $key;
+                }
             }
             if (isset($matchedMoviesId)) {
                 foreach ($matchedMoviesId as $key) {
@@ -146,11 +146,11 @@ class SwipeController extends Controller
                 }
                 return response()->json([
                     'matches' => $matchedMovies
-                ]);  
+                ]);
             }
         }
             return response()->json([
             'matches' => false
-        ]);
+            ]);
     }
 }

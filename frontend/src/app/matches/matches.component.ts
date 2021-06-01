@@ -3,9 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { UsersService } from '../../services/users.service';
 import { MoviesService } from '../../services/movies.service';
-import { Observable } from 'rxjs';
-import { NgIfContext } from '@angular/common';
-// import { SwipePageComponent } from '../../app/components/swipepage/swipepage.component';
 
 @Component({
     selector: 'app-matches',
@@ -16,7 +13,6 @@ export class MatchesComponent implements OnInit {
     friends: any;
     matchedFriends: FormGroup;
     matchedMovies = [];
-    // elseBlock;
 
     constructor(
         public usersService: UsersService,
