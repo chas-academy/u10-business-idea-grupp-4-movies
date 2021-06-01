@@ -45,17 +45,18 @@ class AddfriendController extends Controller
     public function friendList()
     {
         if (auth()->user()) {
-            $friends = Addfriend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->where('status', 1)->get();
-                foreach ($friends as $friend) {
-                        if(auth()->id() == $friend->sender_id) {
-                            $friend->userData = User::where('id', $friend->receiver_id)->get();
-                        } else {
-                            $friend->userData = User::where('id', $friend->sender_id)->get();
-                        }
-                    }
+            $friends = Addfriend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->get();
+            $acceptedfriends = $friends->where('status', 1);
+            foreach ($acceptedfriends as $friend) {
+                if (auth()->id() == $friend->sender_id) {
+                    $friend->userData = User::where('id', $friend->receiver_id)->get();
+                } else {
+                    $friend->userData = User::where('id', $friend->sender_id)->get();
+                }
+            }
                     
             return response()->json([
-                'friendlist' =>  $friends
+                'friendlist' =>  $acceptedfriends
             ]);
         }
     }
