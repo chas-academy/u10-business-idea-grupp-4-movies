@@ -2,7 +2,7 @@
     <form [formGroup]="friendList">
         <div class="flex flex-col justify-center space-y-3 items-center">
             <h1 class="text-center pt-3">Select a friend to swipe against</h1>
-            <select (change)="onChange()" formControlName="friend" class="w-52 justify-center bg-gray-300">
+            <select (change)="onChange()" formControlName="friend" class="w-52 justify-center bg-gray-300 text-black">
                 <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id" class="text-black">
                     {{ friend.userData[0].name }}
                 </option>
