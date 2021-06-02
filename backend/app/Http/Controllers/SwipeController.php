@@ -144,10 +144,7 @@ class SwipeController extends Controller
                     $matchedMovies[] = $movie;
                 }
                 return response()->json([
-                    'matches' => $matchedMovies,
-                    'matchedmoviesId' => $matchedMoviesId,
-                    'friendsswipes' => $movieId1,
-                    'userswipes' => $movieId2
+                    'matches' => $matchedMovies
                 ]);
             }
         }
