@@ -14,7 +14,7 @@
     <div *ngIf="matchedMovies.length > 0; else elseBlock">
         <div class="grid grid-cols-5 grid-rows-2 gap-3 text-center overflow-hidden">
             <ul *ngFor="let matchedMovie of matchedMovies" class="matches pb-3">
-                <div class="matched-card bg-gray-300 rounded-lg flex flex-col text-center text-black">
+                <div class="matched-card bg-gray-300 rounded-lg flex flex-col text-center text-black shadow-lg p-1">
                     <img src="https://image.tmdb.org/t/p/w342/{{ matchedMovie[0].img }}" alt="Movie poster"
                         class="rounded-lg pb-3">
                     <ul>
