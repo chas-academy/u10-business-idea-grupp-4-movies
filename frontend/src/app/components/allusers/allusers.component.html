@@ -1,6 +1,6 @@
 <div class="allusers-wrapper justify-center text-black">
     <div class="space-y-3">
-        <div class="text-center text-white">
+        <div class="text-center text-black">
             <h1 class="text-xl">Users</h1>
             <p>
                 Here's where you'll find your friends, be able to add them and
@@ -8,7 +8,7 @@
             </p>
         </div>
         <section *ngIf="friends">
-            <h3 class="text-center text-xl text-white">Your Friendlist</h3>
+            <h3 class="text-center text-xl text-black">Your Friendlist</h3>
             <div class="px-3 py-3 flex justify-center">
                 <div class="w-3/5 shadow rounded-lg overflow-hidden">
                     <table class="min-w-full">
@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let friend of friends" class="border-b">
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200 w-1/3">
+                                <td class="px-5 py-5 border-gray-200  w-1/3">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10 hidden sm:table-cell">
                                             <img class="w-full h-full rounded-full" src="https://via.placeholder.com/50"
@@ -40,14 +40,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-2 py-2 border-gray-200 bg-gray-200">
+                                <td class="px-2 py-2 border-gray-200 ">
                                     <p>
                                         {{
                                         friend.created_at | date: 'longDate'
                                         }}
                                     </p>
                                 </td>
-                                <td class="py-5 px-1 border-gray-200 bg-gray-200 w-1/3 pr-4">
+                                <td class="py-5 px-1 border-gray-200  w-1/3 pr-4">
                                     <button routerLink="/swipe" type="submit"
                                         class="float-right clear bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded">
                                         Swipe
@@ -60,7 +60,7 @@
             </div>
         </section>
         <div *ngIf="friendRequests">
-            <h3 class="text-center text-xl text-white">Pending Requests</h3>
+            <h3 class="text-center text-xl text-black">Pending Requests</h3>
             <div class="px-3 py-3 flex justify-center">
                 <div class="w-3/5 shadow rounded-lg overflow-hidden">
                     <table class="min-w-full">
@@ -82,7 +82,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let friendRequest of friendRequests" class="border-b">
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200 w-1/3">
+                                <td class="px-5 py-5 border-gray-200  w-1/3">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10 hidden sm:table-cell">
                                             <img class="w-full h-full rounded-full" src="https://via.placeholder.com/50"
@@ -95,18 +95,18 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200">
+                                <td class="px-5 py-5 border-gray-200 ">
                                     <p class="text-center">
                                         {{ friendRequest.sender_id }}
                                     </p>
                                 </td>
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200">
+                                <td class="px-5 py-5 border-gray-200 ">
                                     <p class="text-center">
                                         {{ friendRequest.id }}
                                     </p>
                                 </td>
                                 <div class="users-button-wrapper float-right pr-4">
-                                    <td class="py-5 px-1 border-gray-200 bg-gray-200 w-1/3">
+                                    <td class="py-5 px-1 border-gray-200  w-1/3">
                                         <button (click)="
                                                 handleAcceptRequest(
                                                     friendRequest.id
@@ -116,7 +116,7 @@
                                             Accept
                                         </button>
                                     </td>
-                                    <td class="py-5 px-1 border-gray-200 bg-gray-200 w-1/3">
+                                    <td class="py-5 px-1 border-gray-200  w-1/3">
                                         <button type="submit"
                                             class="clear bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-1 px-2 border border-red-500 hover:border-transparent rounded">
                                             Decline
@@ -128,7 +128,7 @@
                     </table>
                 </div>
             </div>
-            <p class="text-center text-xl text-white">All Users</p>
+            <p class="text-center text-xl text-black">All Users</p>
             <div class="px-3 py-3 flex justify-center">
                 <div class="w-3/5 shadow rounded-lg overflow-hidden">
                     <table *ngIf="users" class="min-w-full">
@@ -150,7 +150,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let user of users" class="border-b">
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200 w-1/3">
+                                <td class="px-5 py-5 border-gray-200  w-1/3">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 w-10 h-10 hidden sm:table-cell">
                                             <img class="w-full h-full rounded-full" src="https://via.placeholder.com/50"
@@ -161,14 +161,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200">
+                                <td class="px-5 py-5 border-gray-200 ">
                                     <p class="text-center">{{ user.email }}</p>
                                 </td>
-                                <td class="px-5 py-5 border-gray-200 bg-gray-200">
+                                <td class="px-5 py-5 border-gray-200 ">
                                     <p class="text-center">{{ user.id }}</p>
                                 </td>
                                 <div class="users-button-wrapper float-right pr-4">
-                                    <td class="py-5 px-1 border-gray-200 bg-gray-200 w-1/3">
+                                    <td class="py-5 px-1 border-gray-200  w-1/3">
                                         <button type="submit" (click)="handleAddFriend(user.id)"
                                             class="clear bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-1 px-2 border border-green-500 hover:border-transparent rounded">
                                             Add

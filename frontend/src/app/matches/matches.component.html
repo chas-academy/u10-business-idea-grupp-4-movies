@@ -1,4 +1,4 @@
-<div class="matches-container text-center pt-3">
+<div class="matches-container text-center pt-3 w-3/6 m-auto">
     <h2 class="text-xl">
         Friends
     </h2>
@@ -12,14 +12,13 @@
         </select>
     </form>
     <div *ngIf="matchedMovies.length > 0; else elseBlock">
-        <div class="grid grid-cols-5 grid-rows-1 gap-3">
-            <ul *ngFor="let matchedMovie of matchedMovies" class="matches">
-                <div class="matched-card bg-gray-300 rounded-lg flex flex-col justify-center text-center text-black">
-                    <img src="{{ matchedMovie[0].img }}" alt="Movie poster" class="rounded-lg">
+        <div class="grid grid-cols-5 grid-rows-2 gap-3 text-center overflow-hidden">
+            <ul *ngFor="let matchedMovie of matchedMovies" class="matches pb-3">
+                <div class="matched-card bg-gray-300 rounded-lg flex flex-col text-center text-black">
+                    <img src="https://image.tmdb.org/t/p/w342/{{ matchedMovie[0].img }}" alt="Movie poster"
+                        class="rounded-lg pb-3">
                     <ul>
-                        <li>{{ matchedMovie[0].title }}
-                        </li>
-                        <!-- <li>{{ matchedMovie[0].genre }}</li> -->
+                        <li class="text-sm pb-3">{{ matchedMovie[0].genre }}</li>
                     </ul>
                 </div>
             </ul>
