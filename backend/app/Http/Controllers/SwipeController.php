@@ -131,12 +131,11 @@ class SwipeController extends Controller
     {
         $friendId = $request->friendId;
         $movieId1 = Swipe::where('user_id', $friendId)->get('movie_id');
-        $movieId2 = Swipe::where('user_id', auth()->id())->get('movie_id');
-        
-        if (isset($movieId1) && isset($movieId2)) {
-            foreach ($movieId1 as $key) {
-                if (Swipe::where('movie_id', $key)->where('user_id', auth()->id())) {
-                    $matchedMoviesId[] = $key;
+        $movieId2 = $this->user->swipedMovies()->get('movie_id');
+        if ($this->user->swipedMovies()->exists() && $movieId1) {
+            foreach ($movieId1 as $value) {
+                if ($this->user->swipedMovies()->where('movie_id', $value->movie_id)->exists()) {
+                    $matchedMoviesId[] = $value->movie_id;
                 }
             }
             if (isset($matchedMoviesId)) {
@@ -145,11 +144,14 @@ class SwipeController extends Controller
                     $matchedMovies[] = $movie;
                 }
                 return response()->json([
-                    'matches' => $matchedMovies
+                    'matches' => $matchedMovies,
+                    'matchedmoviesId' => $matchedMoviesId,
+                    'friendsswipes' => $movieId1,
+                    'userswipes' => $movieId2
                 ]);
             }
         }
-            return response()->json([
+        return response()->json([
             'matches' => false
             ]);
     }
