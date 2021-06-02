@@ -1,32 +1,43 @@
 <div class="matches-container text-center pt-3 w-3/6 m-auto">
-    <h2 class="text-xl">
-        Friends
-    </h2>
+    <h2 class="text-xl">Friends</h2>
     <p>Choose a friend from the drop down list to see your matches</p>
     <form [formGroup]="matchedFriends" class="pt-3 pb-3">
-        <select (change)="selectFriend()" formControlName="matchedFriend"
-            class="w-52 justify-center bg-gray-300 text-black">
-            <option *ngFor=" let friend of friends" [ngValue]="friend.userData[0].id">{{
-                friend.userData[0].name }}
+        <select
+            (change)="selectFriend()"
+            formControlName="matchedFriend"
+            class="w-52 justify-center bg-gray-300 text-black"
+        >
+            <option
+                *ngFor="let friend of friends"
+                [ngValue]="friend.userData[0].id"
+            >
+                {{ friend.userData[0].name }}
             </option>
         </select>
     </form>
     <div *ngIf="matchedMovies.length > 0; else elseBlock">
-        <div class="grid grid-cols-5 grid-rows-2 gap-3 text-center overflow-hidden">
+        <div
+            class="grid grid-cols-5 grid-rows-2 gap-3 text-center overflow-hidden"
+        >
             <ul *ngFor="let matchedMovie of matchedMovies" class="matches pb-3">
-                <div class="matched-card bg-gray-300 rounded-lg flex flex-col text-center text-black shadow-lg p-1">
-                    <img src="https://image.tmdb.org/t/p/w342/{{ matchedMovie[0].img }}" alt="Movie poster"
-                        class="rounded-lg pb-3">
+                <div
+                    class="matched-card bg-gray-300 rounded-lg flex flex-col text-center text-black shadow-lg p-1"
+                >
+                    <img
+                        src="https://image.tmdb.org/t/p/w342/{{
+                            matchedMovie.img
+                        }}"
+                        alt="Movie poster"
+                        class="rounded-lg pb-3"
+                    />
                     <ul>
-                        <li class="text-sm pb-3">{{ matchedMovie[0].genre }}</li>
+                        <li class="text-sm pb-3">{{ matchedMovie.genre }}</li>
                     </ul>
                 </div>
             </ul>
         </div>
     </div>
     <ng-template #elseBlock>
-        <div>
-            No matches to show yet!
-        </div>
+        <div>No matches to show yet!</div>
     </ng-template>
 </div>
