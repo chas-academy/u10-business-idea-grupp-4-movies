@@ -53,7 +53,6 @@ export class SwipePageComponent implements OnInit {
     onChange() {
         this.canSwipe = true;
         this.handleMovies();
-        console.log(this.friendList.value);
     }
 
     startAnimation(state) {
