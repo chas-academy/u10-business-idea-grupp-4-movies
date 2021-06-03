@@ -1,15 +1,8 @@
 # Movie matcher
-
+https://moviematcher.netlify.app/
 ## Contributors
 <table>
   <tr>
-    <td align="center">
-        <a href="https://github.com/IamShazaam">
-            <img src="https://avatars.githubusercontent.com/u/71892760?v=4" width="100;" alt="IamShazaam"/>
-            <br />
-            <sub><b>IamShazaam</b></sub>
-        </a>
-    </td>
     <td align="center">
         <a href="https://github.com/LinusUnghammar">
             <img src="https://avatars.githubusercontent.com/u/70320500?v=4" width="100;" alt="LinusUnghammar"/>
@@ -74,3 +67,4 @@ Frontend is generated with angular CLI, so a good idea to install it `npm instal
 - dev server will be found on `http://localhost:4200/`
 
 ## License 
+Distributed under the [MIT](https://mit-license.org/) License
