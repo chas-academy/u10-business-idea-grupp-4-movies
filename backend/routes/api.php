@@ -18,8 +18,7 @@ use App\Http\Controllers\SwipeController;
 |
 */
 
-Route::group([
-    'scheme' => 'https',    
+Route::group([   
     'middleware' => 'api',                  
     'prefix' => 'auth'          
                         
