@@ -19,22 +19,23 @@ use App\Http\Controllers\SwipeController;
 */
 
 Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-
+    'scheme' => 'https',    
+    'middleware' => 'api',                  
+    'prefix' => 'auth'          
+                        
 ], function ($router) {
-    // user
+    // user 
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
-    // swipe
+    // swipe    
     Route::get('/movies', [MovieController::class, 'index']);
     Route::post('/matches', [SwipeController::class, 'printMatches']);
 
-    // add
+    // add  
     Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
     Route::get('/swipe', [SwipeController::class, 'index']);
     Route::post('/match', [SwipeController::class, 'match']);
