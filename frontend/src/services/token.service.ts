@@ -24,12 +24,14 @@ export class TokenService {
     // Verify the token
     isValidToken() {
         const token = this.getToken();
-        console.log('from isvalidtoken', token);
         if (token) {
-            console.log('from if token', token);
             const payload = this.payload(token);
             if (payload) {
-                console.log('payload', payload);
+                if (Object.values(this.issuer).indexOf(payload.iss) > -1) {
+                    console.log('true', payload);
+                } else {
+                    console.log('false', payload);
+                }
                 return Object.values(this.issuer).indexOf(payload.iss) > -1
                     ? true
                     : false;
