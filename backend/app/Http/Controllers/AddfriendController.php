@@ -54,7 +54,7 @@ class AddfriendController extends Controller
                     $friend->userData = User::where('id', $friend->sender_id)->get();
                 }
             }
-                    
+
             return response()->json([
                 'friendlist' =>  $acceptedfriends
             ]);
@@ -143,7 +143,7 @@ class AddfriendController extends Controller
     {
         $friendRequest = Addfriend::where('id', $id)->first();
         $friendRequest->status = '1';
-        
+
         if ($friendRequest->save()) {
             return response()->json([
                 'message' => 'Friendrequest accepted'
@@ -161,8 +161,17 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(addfriend $addfriend)
+    public function destroy($id)
     {
-        //
+
+        if (Addfriend::where('id', $id)->delete()) {
+            return response()->json([
+                'message' => 'Friendrequest removed'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Failed to remove FR'
+            ]);
+        }
     }
 }

@@ -7,6 +7,7 @@ import { TokenService } from '../services/token.service';
     providedIn: 'root',
 })
 export class AuthStateService {
+    // checks if user is logged in and has valid token
     private userState = new BehaviorSubject<boolean>(this.token.isLoggedIn());
     userAuthState = this.userState.asObservable();
 

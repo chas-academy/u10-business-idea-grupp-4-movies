@@ -1,7 +1,7 @@
 <div *ngIf="friends">
     <form [formGroup]="friendList">
         <div class="flex flex-col justify-center space-y-3 items-center">
-            <h1 class="text-center pt-3">Select a friend to swipe against</h1>
+            <h1 class="text-center pt-3 text-white">Select a friend to swipe against</h1>
             <select (change)="onChange()" formControlName="friend" class="w-52 justify-center bg-gray-300 text-black">
                 <option *ngFor="let friend of friends" [ngValue]="friend.userData[0].id" class="text-black">
                     {{ friend.userData[0].name }}
@@ -9,52 +9,69 @@
             </select>
         </div>
     </form>
-    <div class="movie-container space-y-3 pt-3">
+    <div class="movie-container space-y-3 pt-3 text-white">
         <div *ngIf="movies" class="swipepage-wrapper">
-            <div class="tbg">
-                <div class="tbgwrap">
-                    <div class="swipe-card">
-                        <div class="tphoto" [@cardAnimator]="animationState"
-                            (@cardAnimator.done)="resetAnimationState($event)" (swipeleft)="startAnimation('swipeleft')"
-                            (swiperight)="startAnimation('swiperight')">
-                            <img src="https://image.tmdb.org/t/p/w342/{{
+            <div class="swipe-card flex flex-col justify-center text-center">
+                <div class="m-auto mb-3" [@cardAnimator]="animationState"
+                    (@cardAnimator.done)="resetAnimationState($event)" (swipeleft)="startAnimation('swipeleft')"
+                    (swiperight)="startAnimation('swiperight')">
+                    <img src="https://image.tmdb.org/t/p/w342/{{
                                         movies[index].img
-                                    }}" alt="Poster for movie" class="center" />
-                        </div>
-                        <div class="tname">
-                            {{ movies[index].title }},
-                            <span class="age">{{ movies[index].genre }}</span>
-                        </div>
-                        <div class="tinfo">{{ movies[index].rating }}</div>
-                        <div class="year">{{ movies[index].year }}</div>
-                        <p class="mx-auto text-center w-3/5">
-                            {{ movies[index].description }}
-                        </p>
-                    </div>
+                                    }}" alt="Poster for movie" class="rounded-lg" />
                 </div>
+                <div><span class="text-3xl pt-3">{{ movies[index].title }}</span>
+                    <br>
+                    <span>{{ movies[index].genre }}</span>
+                </div>
+                <div class="rating-div flex justify-center text-center">
+
+                    <svg class="fill-current text-yellow-500 w-4" viewBox="0 0 24 24">
+                        <g data-name="Layer 2">
+                            <path
+                                d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1
+                                                                                1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0
+                                                                                01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z"
+                                data-name="star"></path>
+                        </g>
+                    </svg>
+                    <span class="rating">
+                        {{ movies[index].rating }}
+                    </span>
+                </div>
+                <div>{{ movies[index].year | date: 'YYYY'}}</div>
+                <p class="mx-auto text-center w-1/5">
+                    {{ movies[index].description }}
+                </p>
             </div>
-            <div class="tcontrols">
+            <div class="button-container mb-20 flex justify-center mt-3">
                 <div (click)="
                             cardAnimation(
                                 'swipeleft',
                                 movies[index].id
                             )
-                        " class="tno">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </div>
-                <div class="ti">
-                    <i class="fa fa-info" aria-hidden="true"></i>
+                        " class="tno mr-3">
+                    <svg class="tno" width="120" height="auto" viewBox="0 0 210 165" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M120.2 52.5H85.1C64.4 52.5 61.7 62.3 60.3 89.9C60 95 62.2 97.4 69.6 97.4H90.8C94.9 97.4 95.3 99.3 93.7 102.8L89 112.2C85.7 119.1 86 125.7 92.9 128L120.2 94.7V52.5ZM150 52.5H127.5V97.4H150V52.5ZM198 0C206.1 0 210 3.9 210 12V153C210 161.1 206.1 165 198 165H12C3.9 165 0 161.1 0 153V12C0 3.9 3.9 0 12 0H198ZM195 15H180V30H195V15ZM195 45H180V60H195V45ZM195 75H180V90H195V75ZM195 105H180V120H195V105ZM195 135H180V150H195V135ZM30 15H15V30H30V15ZM30 45H15V60H30V45ZM30 75H15V90H30V75ZM30 105H15V120H30V105ZM30 135H15V150H30V135Z"
+                            fill="#E4345E" />
+                    </svg>
+
                 </div>
                 <div (click)="
-                            cardAnimation(
-                                'swiperight',
-                                movies[index].id
-                            )
-                        " class="tyes">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
+                cardAnimation(
+                    'swiperight',
+                    movies[index].id
+                    )
+                    " class="tyes ml-3">
+                    <svg class="tyes" width="120" height="auto" viewBox="0 0 210 165" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M89.9 112.5H125C145.7 112.5 148.4 102.7 149.8 75.1C150.1 70 147.9 67.6 140.5 67.6H119.3C115.2 67.6 114.8 65.6 116.4 62.2L121.1 52.7C124.4 45.8 124.1 39.2 117.2 36.9L89.9 70.2V112.5ZM60 112.5H82.5V67.7H60V112.5ZM12 165C3.9 165 0 161.1 0 153V12C0 3.9 3.9 0 12 0H198C206.1 0 210 3.9 210 12V153C210 161.1 206.1 165 198 165H12ZM15 150H30V135H15V150ZM15 120H30V105H15V120ZM15 90H30V75H15V90ZM15 60H30V45H15V60ZM15 30H30V15H15V30ZM180 150H195V135H180V150ZM180 120H195V105H180V120ZM180 90H195V75H180V90ZM180 60H195V45H180V60ZM180 30H195V15H180V30Z"
+                            fill="#34E462" />
+                    </svg>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

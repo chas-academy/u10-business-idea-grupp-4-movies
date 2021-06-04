@@ -27,7 +27,6 @@ export class MoviesService {
     }
 
     swipeMovie(id: any, friendId: any) {
-        console.log(friendId);
         const fetchData = this.getFetchData({
             Authorization: this.authHeader,
             'Content-Type': this.contentType,
@@ -56,7 +55,7 @@ export class MoviesService {
             requestBody,
             fetchData
         );
-        request.subscribe((message) => console.log('m2', message));
+        request.subscribe((message) => message);
     }
 
     getMatchedMovies(id): Observable<any> {
