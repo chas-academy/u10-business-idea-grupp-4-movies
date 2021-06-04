@@ -1,7 +1,7 @@
-# Movie matcher
+# MovieMatcher
 https://moviematcher.netlify.app/
 
-## Why Moviematcher?
+## Why MovieMatcher?
 You know when trying to find a movie that both you and your friend/partner want to see? It can take a long time to find the right movie that both approve, instead you can only use movie matcher. You swipe the movies you want to watch, and your partner/friend does the same. Then we will arrange a list of movies that you have both agreed to watch.
 
 ## Contributors
