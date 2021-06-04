@@ -21,7 +21,7 @@ export class TokenService {
         return localStorage.getItem('auth_token');
     }
 
-    // Verify the token
+    // Verify the token,
     isValidToken() {
         const token = this.getToken();
         if (token) {
@@ -34,12 +34,6 @@ export class TokenService {
                     ? true
                     : false;
             }
-            /*
-            if (payload) {
-                return Object.values(this.issuer).indexOf(payload.iss) > -1
-                    ? true
-                    : false;
-            }*/
         }
     }
 
