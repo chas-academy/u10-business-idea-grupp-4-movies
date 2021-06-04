@@ -1,15 +1,10 @@
-<div class="shadow-lg border-b">
+<div class="border-b border-secondary text-white">
     <header *ngIf="isSignedIn"
         class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-6">
         <div class="flex md:text-center">
             <nav>
                 <ul *ngIf="isSignedIn" class="md:flex md:items-center text-center">
                     <li>
-                        <!-- <h1 *ngIf="isSignedIn" class="leading-none text-2xl text-grey-darkest text-center">
-                            <a class="no-underline text-grey-darkest hover:text-secondary" routerLink="/swipe">
-                                MovieMatcher
-                            </a>
-                        </h1> -->
                         <div class="logo-holder-nav">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.1 59.2">
                                 <defs>
@@ -86,7 +81,7 @@
             </nav>
         </div>
         <button *ngIf="isSignedIn"
-            class="float-right bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-1 px-2 border border-yellow-500 hover:border-transparent rounded"
+            class="float-right bg-transparent hover:bg-secondary text-secondary font-semibold hover:text-white py-1 px-2 border border-secondary hover:border-transparent rounded"
             (click)="signOut()">
             Log Out
         </button>

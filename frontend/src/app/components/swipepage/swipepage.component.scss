@@ -1,29 +1,8 @@
-  .ti {
-    background-color: #fff;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
-    position: relative;
-    display: inline-block;
-    top: 19px;
-    border: 10px solid #f0f0f0;
-  }
-  .ti .fa-info {
-    font-size: 18px;
-    padding: 6px 13px;
-    color: #398beb;
-  }
   .tno {
     background-color: #fff;
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
     position: relative;
     display: inline-block;
     top: 43px;
@@ -33,6 +12,8 @@
     color: #ff695b;
     font-size: 80px;
     padding: 11px 22px;
+    cursor: pointer;
+
   }
   .tcontrols {
       display: flex;
@@ -45,18 +26,19 @@
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
     position: relative;
     display: inline-block;
     top: 43px;
     border: 10px solid #f0f0f0;
+    cursor: pointer;
+
   }
   .tyes i {
     color: #5de19c;
     font-size: 60px;
     padding: 22px 21px;
   }
+
+  
   
 
