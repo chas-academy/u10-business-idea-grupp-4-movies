@@ -65,7 +65,6 @@ export class UsersService {
             Authorization: this.authHeader,
             'Content-Type': this.contentType,
         });
-        console.log(`${this.url}/deletefriendrequest/${id}`);
         const request = this.http.delete(
             `${this.url}/deletefriendrequest/${id}`,
             fetchData

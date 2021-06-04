@@ -50,7 +50,6 @@
     </div>
     <form class="form-signin text-center space-y-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h3 class="text-xl">Log In</h3>
-
         <!-- Errors -->
         <div class="text-red-500" *ngIf="errors?.email">
             {{ errors?.email }}
@@ -61,7 +60,6 @@
         <div class="text-red-500" *ngIf="errors?.error">
             {{ errors?.error }}
         </div>
-
         <!-- Login -->
         <div class="form-group">
             <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email address:</label>
@@ -82,6 +80,5 @@
             <button routerLink="/"
                 class="clear bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-1 px-2 border border-red-500 hover:border-transparent rounded">Back</button>
         </div>
-
     </form>
 </div>
