@@ -27,10 +27,19 @@ export class TokenService {
         if (token) {
             const payload = this.payload(token);
             if (payload) {
-                return Object.values(this.issuer).indexOf(payload.iss) > -1
+                const apiStrings = Object.values(this.issuer).map((apiString) =>
+                    apiString.slice(-10)
+                );
+                return apiStrings.indexOf(payload.iss.slice(-10)) > -1
                     ? true
                     : false;
             }
+            /*
+            if (payload) {
+                return Object.values(this.issuer).indexOf(payload.iss) > -1
+                    ? true
+                    : false;
+            }*/
         }
     }
 
