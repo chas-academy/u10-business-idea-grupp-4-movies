@@ -11,46 +11,53 @@
     </form>
     <div class="movie-container space-y-3 pt-3">
         <div *ngIf="movies" class="swipepage-wrapper">
-            <div class="tbg">
-                <div class="tbgwrap">
-                    <div class="swipe-card">
-                        <div class="tphoto" [@cardAnimator]="animationState"
-                            (@cardAnimator.done)="resetAnimationState($event)" (swipeleft)="startAnimation('swipeleft')"
-                            (swiperight)="startAnimation('swiperight')">
-                            <img src="https://image.tmdb.org/t/p/w342/{{
+            <div class="swipe-card flex flex-col justify-center text-center">
+                <div class="m-auto mb-3" [@cardAnimator]="animationState"
+                    (@cardAnimator.done)="resetAnimationState($event)" (swipeleft)="startAnimation('swipeleft')"
+                    (swiperight)="startAnimation('swiperight')">
+                    <img src="https://image.tmdb.org/t/p/w342/{{
                                         movies[index].img
-                                    }}" alt="Poster for movie" class="center" />
-                        </div>
-                        <div class="tname">
-                            {{ movies[index].title }},
-                            <span class="age">{{ movies[index].genre }}</span>
-                        </div>
-                        <div class="tinfo">{{ movies[index].rating }}</div>
-                        <div class="year">{{ movies[index].year }}</div>
-                        <p class="mx-auto text-center w-3/5">
-                            {{ movies[index].description }}
-                        </p>
-                    </div>
+                                    }}" alt="Poster for movie" class="rounded-lg" />
                 </div>
+                <div><span class="text-3xl pt-3">{{ movies[index].title }}</span>
+                    <br>
+                    <span>{{ movies[index].genre }}</span>
+                </div>
+                <div class="rating-div flex justify-center text-center">
+
+                    <svg class="fill-current text-yellow-500 w-4" viewBox="0 0 24 24">
+                        <g data-name="Layer 2">
+                            <path
+                                d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1
+                                                                                1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0
+                                                                                01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z"
+                                data-name="star"></path>
+                        </g>
+                    </svg>
+                    <span class="rating">
+                        {{ movies[index].rating }}
+                    </span>
+                </div>
+                <div>{{ movies[index].year | date: 'YYYY'}}</div>
+                <p class="mx-auto text-center w-3/5">
+                    {{ movies[index].description }}
+                </p>
             </div>
-            <div class="tcontrols">
+            <div class="tcontrols mb-20">
                 <div (click)="
                             cardAnimation(
                                 'swipeleft',
                                 movies[index].id
                             )
-                        " class="tno">
+                        " class="tno mr-3">
                     <i class="fa fa-times" aria-hidden="true"></i>
-                </div>
-                <div class="ti">
-                    <i class="fa fa-info" aria-hidden="true"></i>
                 </div>
                 <div (click)="
                             cardAnimation(
                                 'swiperight',
                                 movies[index].id
                             )
-                        " class="tyes">
+                        " class="tyes ml-3">
                     <i class="fa fa-heart" aria-hidden="true"></i>
                 </div>
             </div>

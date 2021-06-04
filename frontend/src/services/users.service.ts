@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { compileNgModule } from '@angular/compiler';
 
 @Injectable({
     providedIn: 'root',
@@ -54,6 +55,19 @@ export class UsersService {
         });
         const request = this.http.put(
             `${this.url}/acceptfriendrequest/${id}`,
+            fetchData
+        );
+        request.subscribe((message) => message);
+    }
+
+    deleteRequest(id) {
+        const fetchData = this.getFetchData({
+            Authorization: this.authHeader,
+            'Content-Type': this.contentType,
+        });
+        console.log(`${this.url}/deletefriendrequest/${id}`);
+        const request = this.http.delete(
+            `${this.url}/deletefriendrequest/${id}`,
             fetchData
         );
         request.subscribe((message) => message);

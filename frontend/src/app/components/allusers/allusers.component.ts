@@ -42,4 +42,10 @@ export class AllUsersComponent implements OnInit {
         this.handleFriendRequests();
         this.handleFriendList();
     }
+
+    handleDeleteRequest(id) {
+        this.userService.deleteRequest(id);
+        this.handleFriendRequests();
+        this.handleFriendList();
+    }
 }

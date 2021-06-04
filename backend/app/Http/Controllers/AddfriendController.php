@@ -161,8 +161,17 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(addfriend $addfriend)
+    public function destroy($id)
     {
-        //
+        
+        if (Addfriend::where('id', $id)->delete()) {
+            return response()->json([
+                'message' => 'Friendrequest removed'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Failed to remove FR'
+            ]);
+        }
     }
 }
