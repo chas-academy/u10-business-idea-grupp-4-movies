@@ -30,7 +30,7 @@ class SwipeController extends Controller
     {
         $movieId =  $request->movieId;
         $friendId = $request->friendId;
-        
+
         if (Swipe::where('movie_id', $movieId)->where('user_id', $friendId)->exists()) {
             return response()->json([
                 'match' => true,
