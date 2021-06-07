@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { UsersService } from '../../services/users.service';
-import { MoviesService } from '../../services/movies.service';
+import { UsersService } from '../../../services/users.service';
+import { MoviesService } from '../../../services/movies.service';
 
 @Component({
     selector: 'app-matches',
