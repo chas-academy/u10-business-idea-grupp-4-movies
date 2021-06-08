@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\AddfriendController;
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SwipeController;
 
 /*
@@ -40,10 +40,10 @@ Route::group([
     Route::post('/match', [SwipeController::class, 'match']);
 
     // friends
-    Route::get('/users', [AddfriendController::class, 'index']);
-    Route::post('/addfriend/{id}', [AddfriendController::class, 'store']);
-    Route::get('/friendRequests', [AddfriendController::class, 'show']);
-    Route::put('/acceptfriendrequest/{id}', [AddfriendController::class, 'update']);
-    Route::delete('/deletefriendrequest/{id}', [AddfriendController::class, 'destroy']);
-    Route::get('/friendlist', [AddfriendController::class, 'friendList']);
+    Route::get('/users', [FriendController::class, 'index']);
+    Route::post('/addfriend/{id}', [FriendController::class, 'store']);
+    Route::get('/friendRequests', [FriendController::class, 'show']);
+    Route::put('/acceptfriendrequest/{id}', [FriendController::class, 'update']);
+    Route::delete('/deletefriendrequest/{id}', [FriendController::class, 'destroy']);
+    Route::get('/friendlist', [FriendController::class, 'friendList']);
 });
