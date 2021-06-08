@@ -60,6 +60,7 @@ class SwipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /* stores swiped movie in db */
     public function store(Request $request, $id)
     {
         $swipe = new Swipe();
@@ -127,6 +128,7 @@ class SwipeController extends Controller
         //
     }
 
+    /* prints matched movies between two friends */
     public function printMatches(Request $request)
     {
         $friendId = $request->friendId;

@@ -14,6 +14,7 @@ class AddfriendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /* Gets all users except signed in user */
     public function index()
     {
         if (auth()->user()) {
@@ -42,6 +43,7 @@ class AddfriendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /* gets signed in user friendlist */
     public function friendList()
     {
         if (auth()->user()) {
@@ -77,6 +79,8 @@ class AddfriendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /* on sent friendrequest, status 0 is default,
+    meaning not friends yet */
     public function store(Request $request, $id)
     {
         $newFriend = Addfriend::create([
@@ -103,6 +107,7 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
+    /* prints friendrequests for signed in user */
     public function show(addfriend $addfriend)
     {
         /* sender name nestled in array called name */
@@ -139,6 +144,7 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
+    /* when user accepts friendrequest, status is changed to 1 */
     public function update(Request $request, addfriend $addfriend, $id)
     {
         $friendRequest = Addfriend::where('id', $id)->first();
@@ -161,6 +167,8 @@ class AddfriendController extends Controller
      * @param  \App\Models\addfriend  $addfriend
      * @return \Illuminate\Http\Response
      */
+    /* be able to delete friend, but for now it's
+    only called when friendrequest is declined */
     public function destroy($id)
     {
 
