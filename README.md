@@ -36,6 +36,11 @@ Have you and your friend or significant other ever had trouble deciding on what 
 
 ## About the project
 
+### Documentation
+
+Our main documentation:
+[MovieMatcher](https://docs.google.com/document/d/1e9MEfjnDFvz6fgZgI6EreMbnNv-MV07tn8GV5ntvdxA/edit?usp=sharing)
+
 ### Built with
 - [Laravel](https://laravel.com/)
 - [Angular](https://angular.io/)
