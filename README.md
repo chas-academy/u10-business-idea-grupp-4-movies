@@ -2,7 +2,7 @@
 https://moviematcher.netlify.app/
 
 ## Why MovieMatcher?
-You know when you and your friend/partner are trying to find a movie that both of you want to see? It can take a long time to find a movie that both approve of... With MovieMatcher, you swipe the movies you want to watch and your friend/partner does the same. The app matches all your approving swipes and displays them in a couple-specific list.
+Have you and your friend or significant other ever had trouble deciding on what to watch? If so, then MovieMatcher is the perfect app for you! Users can register an account, then find their friends in our database, add them to their friends list and start swiping! MovieMatcher only allows you to swipe with your friends, so you won't get any weird matches with people you don't know. You're also able to choose, specifically, which friend to swipe with and your matches are saved in our database for you to always go back and check what you've matched with in the past. It's as easy as one, two and swipe!
 
 ## Contributors
 <table>
