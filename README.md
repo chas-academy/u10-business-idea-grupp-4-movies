@@ -1,6 +1,7 @@
 # MovieMatcher
 
-<img src="https://imgur.com/a/9YQP6ji"></img>
+<img src="https://i.imgur.com/kiZ1KL5.png"></img>
+
 https://moviematcher.netlify.app/
 
 ## Why MovieMatcher?
