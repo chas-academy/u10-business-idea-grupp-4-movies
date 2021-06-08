@@ -41,12 +41,16 @@ You know when you and your friend/partner are trying to find a movie that both o
 ## Code Standards
 If you intend to work on this project, it is important to follow the code standards we have set up for this project.
 
+### In general
+- Classes should be declared in PascalCase
+- Variables, methods/functions should be declared in camelCase
+
 ### Laravel
 Laravel is written in php therefore we have chosen to follow [PSR-12](https://www.php-fig.org/psr/psr-12/)<br/>
 To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_CodeSniffer).
 
 ### Angular
-We are following the strict rules of [TypeScript](https://www.typescriptlang.org/).
+We are following the strict rules of [TypeScript](https://www.typescriptlang.org/) and the 
 
 ## Getting started
 
