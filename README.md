@@ -46,7 +46,7 @@ If you intend to work on this project, it is important to follow the code standa
 - Variables, methods/functions should be declared in camelCase
 
 ### Laravel
-Laravel is written in php therefore we have chosen to follow [PSR-12](https://www.php-fig.org/psr/psr-12/)<br/>
+Laravel is written in PHP therefore we have chosen to follow [PSR-12](https://www.php-fig.org/psr/psr-12/)<br/>
 To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_CodeSniffer).
 
 ### Angular
@@ -55,25 +55,25 @@ We are following the strict rules of [TypeScript](https://www.typescriptlang.org
 ## Getting started
 
 ### Laravel 
-- clone this repo
+- Clone this repo
 - `cd backend`
-- install dependencies `composer install` (run composer update if needed)
+- Install dependencies `composer install` (run composer update if needed)
 - Create .env file `cp .env.example .env`
 - Fill in TMDB_KEY with your TMDB API key
-- generate app key `php artisan key:generate` 
-- run project with docker `./vendor/bin/sail up`
-- create the tables `./vendor/bin/sail artisan migrate`
-- seed the tables with `./vendor/bin/sail artisan db:seed`
+- Generate app key `php artisan key:generate` 
+- Run project with docker `./vendor/bin/sail up`
+- Create the tables `./vendor/bin/sail artisan migrate`
+- Seed the tables with `./vendor/bin/sail artisan db:seed`
 
 ### Angular 
 To run frontend commands Angular CLI is required. Install with `npm install -g @angular/cli` 
-- clone this repo
+- Clone this repo
 - `cd frontend`
-- install dependencies `npm install`
-- create .env file `cp .env.example .env`
-- make sure your `API_URL` in `.env` is correct and connected to the backend
-- run `ng serve`
-- dev server will be found on `http://localhost:4200/`
+- Install dependencies `npm install`
+- Ireate .env file `cp .env.example .env`
+- Make sure your `API_URL` in `.env` is correct and connected to the backend
+- Run `ng serve`
+- Dev server will be found on `http://localhost:4200/`
 
 ## License 
 Distributed under the [MIT](https://mit-license.org/) License
