@@ -2,7 +2,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 178.1 59.2" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<style>.cls-1 {fill: #e4345e;} .cls-2 {isolation: isolate;}</style>
+
 </defs>
 <g data-name="Lager 2">
 <g data-name="Lager 1">
