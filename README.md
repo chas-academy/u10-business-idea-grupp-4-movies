@@ -43,9 +43,10 @@ If you intend to work on this project, it is important to follow the code standa
 
 ### Laravel
 Laravel is written in php therefore we have chosen to follow [PSR-12](https://www.php-fig.org/psr/psr-12/)<br/>
-To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_CodeSniffer). 
+To make life easier we use php [codesniffer](https://github.com/squizlabs/PHP_CodeSniffer).
 
 ### Angular
+We are following the strict rules of [TypeScript](https://www.typescriptlang.org/).
 
 ## Getting started
 
