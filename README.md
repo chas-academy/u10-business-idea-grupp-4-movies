@@ -81,14 +81,14 @@ Distributed under the [MIT](https://mit-license.org/) License
 ## Example (Swiping)
 ### User page
 <figure>
-  <img src="https://cdn.discordapp.com/attachments/763816365554532363/851908008145715290/unknown.png"></img>
   <figcaption>On the user page you can see your friends, incoming requests and send requests to other users. (For now the swipe-button in the friends table takes you to the swipe page, but could be used to instantly swipe against that friend)</figcaption>
+  <img src="https://cdn.discordapp.com/attachments/763816365554532363/851908008145715290/unknown.png"></img>
 </figure>
 
 ### Swipe page
 <figure>
-  <img src="https://cdn.discordapp.com/attachments/763816365554532363/851907028564705300/unknown.png"></img>
   <figcaption>Once you have a friend you can select them from the dropdown and the first movie will appear as a card with some info. Under the card is the dislike/like-buttons. A click on the right (thumbs up) will add that movie to a list of approved movies and then the next movie card shows up. If your friend has liked the same movie, it's a match. If you click on the thumbs down you will just be shown the next movie card.</figcaption>
+  <img src="https://cdn.discordapp.com/attachments/763816365554532363/851907028564705300/unknown.png"></img>
 </figure>
 
 ### Matches page
