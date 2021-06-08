@@ -77,3 +77,8 @@ To run frontend commands Angular CLI is required. Install with `npm install -g @
 
 ## License 
 Distributed under the [MIT](https://mit-license.org/) License
+
+## Example (Swiping)
+<img src="https://cdn.discordapp.com/attachments/763816365554532363/851907028564705300/unknown.png"></img> 
+
+
