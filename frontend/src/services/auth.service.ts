@@ -17,7 +17,7 @@ export class User {
 })
 export class AuthService {
     constructor(private http: HttpClient) {}
-    api = environment.apiUrl;
+    api = environment.apiUrl; // holds api url
 
     // User registration
     register(user: User): Observable<any> {
