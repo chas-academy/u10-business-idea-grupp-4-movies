@@ -4,7 +4,6 @@
 <defs>
 <style>.cls-1 {fill: #e4345e;} .cls-2 {isolation: isolate;}</style>
 </defs>
-<title>wordmark_pink</title>
 <g data-name="Lager 2">
 <g data-name="Lager 1">
 <g data-name="Lager 1-2">
