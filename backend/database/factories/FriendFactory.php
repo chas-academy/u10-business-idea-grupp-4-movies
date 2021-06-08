@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\addfriend;
+use App\Models\Friend;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AddfriendFactory extends Factory
+class FriendFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = addfriend::class;
+    protected $model = Friend::class;
 
     /**
      * Define the model's default state.

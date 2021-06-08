@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\Addfriend;
+use App\Models\Friend;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class AddfriendController extends Controller
+class FriendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,7 +45,7 @@ class AddfriendController extends Controller
     public function friendList()
     {
         if (auth()->user()) {
-            $friends = Addfriend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->get();
+            $friends = Friend::where('sender_id', auth()->id())->orWhere('receiver_id', auth()->id())->get();
             $acceptedfriends = $friends->where('status', 1);
             foreach ($acceptedfriends as $friend) {
                 if (auth()->id() == $friend->sender_id) {
@@ -79,7 +79,7 @@ class AddfriendController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $newFriend = Addfriend::create([
+        $newFriend = Friend::create([
             'sender_id' => auth()->id(),
             'receiver_id' => $id
         ]);
@@ -100,13 +100,13 @@ class AddfriendController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\addfriend  $addfriend
+     * @param  \App\Models\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function show(addfriend $addfriend)
+    public function show(Friend $friend)
     {
         /* sender name nestled in array called name */
-        $friendRequests = Addfriend::where('receiver_id', auth()->id())->where('status', 0)->get();
+        $friendRequests = Friend::where('receiver_id', auth()->id())->where('status', 0)->get();
         foreach ($friendRequests as $request) {
             $request->name = User::where('id', $request->sender_id)->get('name');
         }
@@ -124,10 +124,10 @@ class AddfriendController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\addfriend  $addfriend
+     * @param  \App\Models\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function edit(addfriend $addfriend)
+    public function edit(Friend $friend)
     {
         //
     }
@@ -136,12 +136,12 @@ class AddfriendController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\addfriend  $addfriend
+     * @param  \App\Models\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, addfriend $addfriend, $id)
+    public function update(Request $request, Friend $friend, $id)
     {
-        $friendRequest = Addfriend::where('id', $id)->first();
+        $friendRequest = Friend::where('id', $id)->first();
         $friendRequest->status = '1';
 
         if ($friendRequest->save()) {
@@ -158,13 +158,13 @@ class AddfriendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\addfriend  $addfriend
+     * @param  \App\Models\Friend  $friend
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
 
-        if (Addfriend::where('id', $id)->delete()) {
+        if (Friend::where('id', $id)->delete()) {
             return response()->json([
                 'message' => 'Friendrequest removed'
             ]);
