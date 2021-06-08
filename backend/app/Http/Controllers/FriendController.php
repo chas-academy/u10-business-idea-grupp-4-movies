@@ -14,6 +14,7 @@ class FriendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /* Gets all users except signed in user */
     public function index()
     {
         if (auth()->user()) {
@@ -42,6 +43,7 @@ class FriendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /* gets signed in user friendlist */
     public function friendList()
     {
         if (auth()->user()) {
@@ -77,6 +79,8 @@ class FriendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /* on sent friendrequest, status 0 is default,
+    meaning not friends yet */
     public function store(Request $request, $id)
     {
         $newFriend = Friend::create([
@@ -161,6 +165,8 @@ class FriendController extends Controller
      * @param  \App\Models\Friend  $friend
      * @return \Illuminate\Http\Response
      */
+    /* be able to delete friend, but for now it's
+    only called when friendrequest is declined */
     public function destroy($id)
     {
 

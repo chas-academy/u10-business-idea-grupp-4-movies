@@ -9,8 +9,8 @@ import { environment } from '../environments/environment';
 })
 export class MoviesService {
     constructor(private http: HttpClient) {}
-    url = environment.apiUrl;
-    accessToken = localStorage.getItem('accessToken');
+    url = environment.apiUrl; // holds api
+    accessToken = localStorage.getItem('accessToken'); // holds signed user token
     authHeader = `Bearer ${this.accessToken}`;
     contentType = 'application/json';
 
@@ -26,6 +26,7 @@ export class MoviesService {
         return this.http.get(`${this.url}/movies`, fetchData);
     }
 
+    /* sends data to backend, adds movie to swipedmovies */
     swipeMovie(id: any, friendId: any) {
         const fetchData = this.getFetchData({
             Authorization: this.authHeader,
