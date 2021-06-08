@@ -56,7 +56,7 @@ We are following the strict rules of [TypeScript](https://www.typescriptlang.org
 
 ### Laravel 
 - clone this repo
-- cd backend
+- `cd backend`
 - install dependencies `composer install` (run composer update if needed)
 - Create .env file `cp .env.example .env`
 - Fill in TMDB_KEY with your TMDB API key
@@ -66,9 +66,9 @@ We are following the strict rules of [TypeScript](https://www.typescriptlang.org
 - seed the tables with `./vendor/bin/sail artisan db:seed`
 
 ### Angular 
-Frontend is generated with angular CLI, so a good idea to install it `npm install -g @angular/cli` 
+To run frontend commands Angular CLI is required. Install with `npm install -g @angular/cli` 
 - clone this repo
-- cd frontend
+- `cd frontend`
 - install dependencies `npm install`
 - create .env file `cp .env.example .env`
 - make sure your `API_URL` in `.env` is correct and connected to the backend
