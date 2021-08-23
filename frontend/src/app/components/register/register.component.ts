@@ -29,9 +29,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         this.authService.register(this.registerForm.value).subscribe(
-            (result) => {
-                console.log(result);
-            },
+            (result) => result,
             (error) => {
                 this.errors = error.error;
             },

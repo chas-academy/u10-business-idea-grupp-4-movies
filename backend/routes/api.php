@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\AddfriendController;
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SwipeController;
 
 /*
@@ -18,31 +18,32 @@ use App\Http\Controllers\SwipeController;
 |
 */
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-
+Route::group([   
+    'middleware' => 'api',                  
+    'prefix' => 'auth'          
+                        
 ], function ($router) {
-    // user
+    // user 
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
-    // swipe
+    // swipe    
     Route::get('/movies', [MovieController::class, 'index']);
     Route::post('/matches', [SwipeController::class, 'printMatches']);
 
-    // add
+    // add  
     Route::post('/swipe/add/{id}', [SwipeController::class, 'store']);
     Route::get('/swipe', [SwipeController::class, 'index']);
     Route::post('/match', [SwipeController::class, 'match']);
 
     // friends
-    Route::get('/users', [AddfriendController::class, 'index']);
-    Route::post('/addfriend/{id}', [AddfriendController::class, 'store']);
-    Route::get('/friendRequests', [AddfriendController::class, 'show']);
-    Route::put('/acceptfriendrequest/{id}', [AddfriendController::class, 'update']);
-    Route::get('/friendlist', [AddfriendController::class, 'friendList']);
+    Route::get('/users', [FriendController::class, 'index']);
+    Route::post('/addfriend/{id}', [FriendController::class, 'store']);
+    Route::get('/friendRequests', [FriendController::class, 'show']);
+    Route::put('/acceptfriendrequest/{id}', [FriendController::class, 'update']);
+    Route::delete('/deletefriendrequest/{id}', [FriendController::class, 'destroy']);
+    Route::get('/friendlist', [FriendController::class, 'friendList']);
 });

@@ -21,14 +21,16 @@ export class TokenService {
         return localStorage.getItem('auth_token');
     }
 
-    // Verify the token
+    // Verify the token,
     isValidToken() {
         const token = this.getToken();
-
         if (token) {
             const payload = this.payload(token);
             if (payload) {
-                return Object.values(this.issuer).indexOf(payload.iss) > -1
+                const apiStrings = Object.values(this.issuer).map((apiString) =>
+                    apiString.slice(-10)
+                );
+                return apiStrings.indexOf(payload.iss.slice(-10)) > -1
                     ? true
                     : false;
             }

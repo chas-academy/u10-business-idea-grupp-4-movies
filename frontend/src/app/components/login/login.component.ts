@@ -22,13 +22,14 @@ export class LoginComponent implements OnInit {
         private authState: AuthStateService
     ) {
         this.loginForm = this.fb.group({
-            email: [],
-            password: [],
+            email: [], // sets formControlName
+            password: [], // sets formControlName
         });
     }
 
     ngOnInit() {}
 
+    /* triggers on login, calls auth service */
     onSubmit() {
         this.authService.signin(this.loginForm.value).subscribe(
             (result) => {
