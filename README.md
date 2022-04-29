@@ -78,7 +78,7 @@ To run frontend commands Angular CLI is required. Install with `npm install -g @
 - Clone this repo
 - `cd frontend`
 - Install dependencies `npm install`
-- Ireate .env file `cp .env.example .env`
+- Create .env file `cp .env.example .env`
 - Make sure your `API_URL` in `.env` is correct and connected to the backend
 - Run `ng serve`
 - Dev server will be found on `http://localhost:4200/`
